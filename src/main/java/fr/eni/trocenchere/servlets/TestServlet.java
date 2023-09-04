@@ -42,6 +42,7 @@ public class TestServlet extends HttpServlet {
             e.printStackTrace();
         }
 		
+        System.out.println("Modif manu");
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/JspTest.jsp");
 		rd.forward(request, response);
 	}
