@@ -43,6 +43,7 @@ public class TestServlet extends HttpServlet {
         }
 		
         System.out.println("Modif manu");
+        // MODIF TOG
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/JspTest.jsp");
 		rd.forward(request, response);
 	}
