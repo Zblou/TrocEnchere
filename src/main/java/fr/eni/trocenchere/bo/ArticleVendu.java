@@ -1,6 +1,7 @@
 package fr.eni.trocenchere.bo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ArticleVendu {
 
@@ -13,6 +14,7 @@ public class ArticleVendu {
 	private int prixVente;
 	private Utilisateur possesseurArticle;
 	private Categorie catArticle;
+	private ArrayList<Enchere> listeEnchere = new ArrayList<>();
 	
 	// CONSTRUCTORS
 	
@@ -112,6 +114,14 @@ public class ArticleVendu {
 	}
 	public void setCatArticle(Categorie catArticle) {
 		this.catArticle = catArticle;
+	}
+
+	public ArrayList<Enchere> getListeEnchere() {
+		return listeEnchere;
+	}
+
+	public void ajouterEnchere(Enchere enchere) {
+		this.listeEnchere.add(enchere);
 	}
 	
 }
