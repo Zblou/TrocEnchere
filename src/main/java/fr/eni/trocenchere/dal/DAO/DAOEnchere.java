@@ -1,5 +1,5 @@
 package fr.eni.trocenchere.dal.DAO;
 
-public class DAOEnchere {
+public interface DAOEnchere  {
 
 }
