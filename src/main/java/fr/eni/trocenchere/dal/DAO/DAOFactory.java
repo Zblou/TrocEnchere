@@ -1,6 +1,9 @@
 package fr.eni.trocenchere.dal.DAO;
 
 
+import fr.eni.trocenchere.dal.jdbc.DAOArticleVenduJDBCImpl;
+import fr.eni.trocenchere.dal.jdbc.DAOCategorieJDBCImpl;
+import fr.eni.trocenchere.dal.jdbc.DAOEnchereJDBCImpl;
 import fr.eni.trocenchere.dal.jdbc.UtilisateurDAOJdbcImpl;
 
 public class DAOFactory {
@@ -8,6 +11,17 @@ public class DAOFactory {
     public static DAOUtilisateur getDAOUtilisateur() {
         return new UtilisateurDAOJdbcImpl();
     }
- 
-
+    
+    public static DAOArticleVendu getDAOArticleVenduJDBCIpml() {
+    	return new DAOArticleVenduJDBCImpl();
+    }
+    
+    public static DAOEnchere getDAOEnchereJDBCImpl() {
+    	return new DAOEnchereJDBCImpl();
+    }
+    
+    public static DAOCategorie getDAOCategorieJDBCImpl() {
+    	return new DAOCategorieJDBCImpl();
+    }
+    
 }
