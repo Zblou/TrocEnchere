@@ -23,7 +23,7 @@ public class ServletEnchere extends HttpServlet implements Servlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// On arrive ici via le bouton "Vendre un article" de l'acceuil
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/ServletEnchere.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/CreationEnchere.jsp");
 		rd.forward(request, response);
 	}
 
