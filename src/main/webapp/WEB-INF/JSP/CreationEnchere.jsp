@@ -24,7 +24,7 @@
 		<div class="col-4"><img alt="ENCHERE" class="img-fluid" src="https://cdn.pixabay.com/photo/2014/04/03/10/45/hammer-311343_1280.png"></div>
 		
 		<div class="col-6">
-			<form class="row">
+			<form class="row" method="POST" action="">
 			  <div class="row">
 			    <div class="col-4 pt-2"><label for="ArticleName" class="form-label">Article</label></div>
 			    <div class="col-8"><input type="text" class="form-control" name="ArticleName" id="ArticleName" required></div>
@@ -78,15 +78,39 @@
 			  <br>
 			  <div>
 			  </div>
-			  
-			  <div class="col-12">
-			    <button class="btn btn-primary" type="submit">Submit form</button>
+			  <div class="col-10 offset-1">
+			  	<fieldset class="border">
+			  		<legend>Dépôt</legend>
+					  <div class="row">
+					    <div class="col-4 pt-2"><label for="RueDepot" class="form-label">Rue</label></div>
+					    <div class="col-8"><input type="text" class="form-control" name=""RueDepot"" id=""RueDepot"" required></div>
+					  </div>
+					  <div class="row">
+					    <div class="col-4 pt-2"><label for="CodePostalDepot" class="form-label">Code Postal</label></div>
+					    <div class="col-8"><input type="text" class="form-control" name="CodePostalDepot" id="CodePostalDepot" required></div>
+					  </div>
+					  <div class="row">
+					    <div class="col-4 pt-2"><label for="VilleDepot" class="form-label">Ville</label></div>
+					    <div class="col-8"><input type="text" class="form-control" name=""VilleDepot"" id=""VilleDepot"" required></div>
+					  </div>
+			  	</fieldset>
+			  </div>
+			  <div class="row justify-content-center">
+			  	<div class="col-4">
+			  	<br>
+			    	<button class="btn btn-primary" type="submit">Enregistrer</button>
+			    </div>
+			    <div class="col-4">
+			    <br>
+			    	<a class="btn btn-primary" href="">Retour</a>
+			    </div>
 			  </div>
 			</form>
 		</div>
 	
 	</div>
 </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </html>
