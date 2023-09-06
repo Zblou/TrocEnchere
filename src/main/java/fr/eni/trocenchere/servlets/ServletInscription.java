@@ -1,7 +1,11 @@
 package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
+import fr.eni.diplomes.bll.CandidatManager;
+import fr.eni.diplomes.bo.Candidat;
+import fr.eni.trocenchere.bo.Utilisateur;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,16 +19,33 @@ public class ServletInscription extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Dirige vers la page d'inscription
+			
+	
 		
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/inscription.jsp");
+		
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/inscription.jsp");
 		rd.forward(request, response);
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		
+		String pseudo = request.getParameter("pseudo");
+		String nom = request.getParameter("nom");;
+		String prenom = request.getParameter("prenom");;
+		String email = request.getParameter("email");;
+		String telephone = request.getParameter("telephone");;
+		String rue = request.getParameter("rue");;
+		String codePostal = request.getParameter("codePostal");;
+		String ville = request.getParameter("ville");;
+		String motDePasse = request.getParameter("mdp");;
+		
+		
+		
+		
+		
 		doGet(request, response);
 	}
 
