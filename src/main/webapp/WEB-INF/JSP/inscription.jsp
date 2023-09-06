@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ENI Enchére</title>
+<title>Vuiller you inscrire </title>
 </head>
 <body>
  <div>
