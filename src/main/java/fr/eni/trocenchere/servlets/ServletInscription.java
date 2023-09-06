@@ -20,7 +20,7 @@ public class ServletInscription extends HttpServlet {
 		
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/inscription.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/inscription.jsp");
 		rd.forward(request, response);
 		
 	}

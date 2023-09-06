@@ -13,7 +13,7 @@
 	
 	<div class="row mb-5">
 		<div class="col-4 text-start"><a href="ServletAccueil">ENI-Enchères</a></div>
-		<div class="col-4 offset-4"><p class="text-end"><a href="ServletConnexion">Se connecter</a> - <a href="">S'inscire</a></p></div>
+		<div class="col-4 offset-4"><p class="text-end"><a href="ServletConnexion">Se connecter</a> - <a href="ServletInscription">S'inscire</a></p></div>
 	</div>
 	
 
