@@ -16,7 +16,7 @@ public class Utilisateur {
 	private String motDePasse;
 	private int credit;
 	private Boolean administrateur;
-	private ArrayList<ArticleVendu> listeVente = new ArrayList<>();
+	private ArrayList<Article> listeVente = new ArrayList<>();
 	private ArrayList<Enchere> listeEnchere = new ArrayList<>();
 	
 	
@@ -146,11 +146,11 @@ public class Utilisateur {
 	public void setAdministrateur(Boolean administrateur) {
 		this.administrateur = administrateur;
 	}
-	public ArrayList<ArticleVendu> getListeVente() {
+	public ArrayList<Article> getListeVente() {
 		return listeVente;
 	}
-	public void ajouterVente(ArticleVendu articleVendu) {
-		this.listeVente.add(articleVendu);
+	public void ajouterVente(Article article) {
+		this.listeVente.add(article);
 	}
 	public ArrayList<Enchere> getListeEnchere() {
 		return listeEnchere;

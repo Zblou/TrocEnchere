@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/ServletEnchere")
+@WebServlet("/ServletArticle")
 public class ServletArticle extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 1L;
        
@@ -25,7 +25,7 @@ public class ServletArticle extends HttpServlet implements Servlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/CreationArticle.jsp");
 		rd.forward(request, response);
-	}
+	}	
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

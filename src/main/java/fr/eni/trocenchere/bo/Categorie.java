@@ -11,7 +11,7 @@ public enum Categorie {
 	
 	private int idCategorie;
 	private String libelle;
-	private ArrayList<ArticleVendu> listeArticle = new ArrayList<>();
+	private ArrayList<Article> listeArticle = new ArrayList<>();
 	
 	
 	// GETTERS SETTERS
@@ -28,11 +28,11 @@ public enum Categorie {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-	public ArrayList<ArticleVendu> getListeArticle() {
+	public ArrayList<Article> getListeArticle() {
 		return listeArticle;
 	}
-	public void ajouterArticleVendu(ArticleVendu articleVendu) {
-		this.listeArticle.add(articleVendu);
+	public void ajouterArticle(Article article) {
+		this.listeArticle.add(article);
 	}
 	
 	
