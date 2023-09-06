@@ -15,7 +15,7 @@ import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
 
-private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = '?'";
+private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = ?";
 
 	@Override
 	public List<Utilisateur> selectById() {
@@ -37,15 +37,15 @@ private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEU
 			ResultSet rs  = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				mdpBDD = rs.getString(1);
-				if(motdePasse.equals(mdpBDD)) {
+				mdpBDD = rs.getString("mot_de_passe");
+				if(motdePasse.equalsIgnoreCase(mdpBDD)) {
 					mdpIdentique = true;
 				}
 				
 			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return mdpIdentique;
 	}
