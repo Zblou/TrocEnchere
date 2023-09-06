@@ -16,11 +16,11 @@ public enum Categorie {
 	
 	// GETTERS SETTERS
 	
-	public int getNoCategorie() {
+	public int getIdCategorie() {
 		return idCategorie;
 	}
-	public void setNoCategorie(int noCategorie) {
-		this.idCategorie = noCategorie;
+	public void setIdCategorie(int idCategorie) {
+		this.idCategorie = idCategorie;
 	}
 	public String getLibelle() {
 		return libelle;

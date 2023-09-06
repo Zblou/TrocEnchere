@@ -23,13 +23,12 @@ public class Article {
 
 
 	public Article(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
-			int miseAPrix, int prixVente, Utilisateur possesseurArticle, Categorie catArticle) {
+			int miseAPrix, Utilisateur possesseurArticle, Categorie catArticle) {
 		this.nomArticle = nomArticle;
 		this.description = description;
 		this.dateDebutEncheres = dateDebutEncheres;
 		this.dateFinEncheres = dateFinEncheres;
 		this.miseAPrix = miseAPrix;
-		this.prixVente = prixVente;
 		this.possesseurArticle = possesseurArticle;
 		this.catArticle = catArticle;
 	}
@@ -61,10 +60,10 @@ public class Article {
 	
 	// GETTERS SETTERS
 	
-	public int getNoArticle() {
+	public int getIdArticle() {
 		return idArticle;
 	}
-	public void setNoArticle(int idArticle) {
+	public void setIdArticle(int idArticle) {
 		this.idArticle = idArticle;
 	}
 	public String getNomArticle() {

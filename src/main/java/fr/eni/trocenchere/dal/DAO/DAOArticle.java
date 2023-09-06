@@ -1,9 +1,14 @@
 package fr.eni.trocenchere.dal.DAO;
 
 import fr.eni.trocenchere.bo.Article;
+import fr.eni.trocenchere.dal.DALException;
 
 public interface DAOArticle {
 
-	void insertArticle(Article article);
+	void insertArticle(Article article) throws DALException;
+
+	void verifArticle(String articleName, String descriptionArticle, String articleCategorie,
+			String miseAPrix, String debutEnchere, String finEnchere, String rueDepot, String codePostalDepot,
+			String villeDepot);
 
 }
