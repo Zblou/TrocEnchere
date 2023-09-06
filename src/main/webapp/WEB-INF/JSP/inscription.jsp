@@ -8,7 +8,7 @@
 </head>
 <body>
  <div>
-	<form>
+	<form methode="POST" action="">
                      
             <label for="pseudo">Pseudo : </label>
             <input type="text" id="pseudo" name="pseudo" required><br><br>
