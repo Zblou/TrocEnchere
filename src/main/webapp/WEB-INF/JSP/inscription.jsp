@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ENI Enchére</title>
+<title>Vuiller you inscrire </title>
 </head>
 <body>
  <div>
@@ -34,7 +34,7 @@
             <input type="text" id="rue" name="rue" required><br><br>
             
             <label for="codePostal">Code Postal : </label>
-            <input type="text" id="codePostal" name="codePostal"  required pattern="[0-9]{5}"><br><br>
+            <input type="text" id="codePostal" name="codePostal"  required><br><br>
 
             
             <label for="ville">Ville : </label>
