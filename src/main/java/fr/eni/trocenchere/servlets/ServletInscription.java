@@ -1,11 +1,7 @@
 package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
-import fr.eni.diplomes.bll.CandidatManager;
-import fr.eni.diplomes.bo.Candidat;
-import fr.eni.trocenchere.bo.Utilisateur;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
