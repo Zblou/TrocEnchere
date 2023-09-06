@@ -24,7 +24,7 @@
 		<div class="col-4"><img alt="ENCHERE" class="img-fluid" src="https://cdn.pixabay.com/photo/2014/04/03/10/45/hammer-311343_1280.png"></div>
 		
 		<div class="col-6">
-			<form class="row" method="POST" action="">
+			<form class="row" method="POST" action="ServletArticle">
 			  <div class="row">
 			    <div class="col-4 pt-2"><label for="ArticleName" class="form-label">Article</label></div>
 			    <div class="col-8"><input type="text" class="form-control" name="ArticleName" id="ArticleName" required></div>
@@ -83,7 +83,7 @@
 			  		<legend>Dépôt</legend>
 					  <div class="row">
 					    <div class="col-4 pt-2"><label for="RueDepot" class="form-label">Rue</label></div>
-					    <div class="col-8"><input type="text" class="form-control" name=""RueDepot"" id=""RueDepot"" required></div>
+					    <div class="col-8"><input type="text" class="form-control" name="RueDepot" id="RueDepot" required></div>
 					  </div>
 					  <div class="row">
 					    <div class="col-4 pt-2"><label for="CodePostalDepot" class="form-label">Code Postal</label></div>
@@ -91,7 +91,7 @@
 					  </div>
 					  <div class="row">
 					    <div class="col-4 pt-2"><label for="VilleDepot" class="form-label">Ville</label></div>
-					    <div class="col-8"><input type="text" class="form-control" name=""VilleDepot"" id=""VilleDepot"" required></div>
+					    <div class="col-8"><input type="text" class="form-control" name="VilleDepot" id="VilleDepot" required></div>
 					  </div>
 			  	</fieldset>
 			  </div>

@@ -12,10 +12,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/ServletEnchere")
-public class ServletEnchere extends HttpServlet implements Servlet {
+public class ServletArticle extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 1L;
        
-    public ServletEnchere() {
+    public ServletArticle() {
         super();
     }
 
@@ -23,13 +23,23 @@ public class ServletEnchere extends HttpServlet implements Servlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// On arrive ici via le bouton "Vendre un article" de l'acceuil
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/CreationEnchere.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/CreationArticle.jsp");
 		rd.forward(request, response);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		System.out.println(request.getParameter("ArticleName"));
+		System.out.println(request.getParameter("DescriptionArticle"));
+		System.out.println(request.getParameter("ArticleCategorie"));
+		System.out.println(request.getParameter("ArticlePhoto"));
+		System.out.println(request.getParameter("MiseAPrix"));
+		System.out.println(request.getParameter("DebutEnchere"));
+		System.out.println(request.getParameter("FinEnchere"));
+		System.out.println(request.getParameter("RueDepot"));
+		System.out.println(request.getParameter("CodePostalDepot"));
+		System.out.println(request.getParameter("VilleDepot"));
+
 	}
 
 }
