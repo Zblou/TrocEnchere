@@ -15,7 +15,7 @@ import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
 
-private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = ?";
+private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = ?;";
 
 	@Override
 	public List<Utilisateur> selectById() {

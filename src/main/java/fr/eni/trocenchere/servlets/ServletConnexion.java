@@ -21,7 +21,7 @@ public class ServletConnexion extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/connexion.jsp");
 		rd.forward(request, response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 
