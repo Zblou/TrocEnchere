@@ -12,7 +12,7 @@ public class DAOFactory {
         return new UtilisateurDAOJdbcImpl();
     }
     
-    public static DAOArticle getDAOArticleVenduJDBCIpml() {
+    public static DAOArticle getDAOArticleJDBCIpml() {
     	return new DAOArticleJDBCImpl();
     }
     

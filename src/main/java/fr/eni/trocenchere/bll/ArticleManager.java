@@ -1,6 +1,7 @@
 package fr.eni.trocenchere.bll;
 
 import fr.eni.trocenchere.bo.Article;
+import fr.eni.trocenchere.dal.DAO.DAOFactory;
 
 public class ArticleManager {
 
@@ -18,6 +19,6 @@ public class ArticleManager {
 	
 	
 	public void insertArticle(Article article) {
-		
+		DAOFactory.getDAOArticleJDBCIpml().insertArticle(article);
 	}
 }
