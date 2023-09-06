@@ -3,9 +3,9 @@ package fr.eni.trocenchere.bo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class ArticleVendu {
+public class Article {
 
-	private int noArticle;
+	private int idArticle;
 	private String nomArticle;
 	private String description;
 	private LocalDate dateDebutEncheres;
@@ -18,11 +18,11 @@ public class ArticleVendu {
 	
 	// CONSTRUCTORS
 	
-	public ArticleVendu() {
+	public Article() {
 	}
 
 
-	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
+	public Article(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
 			int miseAPrix, int prixVente, Utilisateur possesseurArticle, Categorie catArticle) {
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -35,10 +35,10 @@ public class ArticleVendu {
 	}
 
 
-	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
+	public Article(int idArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
 			LocalDate dateFinEncheres, int miseAPrix, int prixVente, Utilisateur possesseurArticle,
 			Categorie catArticle) {
-		this.noArticle = noArticle;
+		this.idArticle = idArticle;
 		this.nomArticle = nomArticle;
 		this.description = description;
 		this.dateDebutEncheres = dateDebutEncheres;
@@ -52,7 +52,7 @@ public class ArticleVendu {
 
 	@Override
 	public String toString() {
-		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
+		return "ArticleVendu [idArticle=" + idArticle + ", nomArticle=" + nomArticle + ", description=" + description
 				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix="
 				+ miseAPrix + ", prixVente=" + prixVente + ", possesseurArticle=" + possesseurArticle + ", catArticle="
 				+ catArticle + "]";
@@ -62,10 +62,10 @@ public class ArticleVendu {
 	// GETTERS SETTERS
 	
 	public int getNoArticle() {
-		return noArticle;
+		return idArticle;
 	}
-	public void setNoArticle(int noArticle) {
-		this.noArticle = noArticle;
+	public void setNoArticle(int idArticle) {
+		this.idArticle = idArticle;
 	}
 	public String getNomArticle() {
 		return nomArticle;

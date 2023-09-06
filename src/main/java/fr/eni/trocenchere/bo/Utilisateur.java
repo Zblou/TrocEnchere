@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Utilisateur {
 
-	private int noUtilisateur;
+	private int idUtilisateur;
 	private String pseudo;
 	private String nom;
 	private String prenom;
@@ -16,7 +16,7 @@ public class Utilisateur {
 	private String motDePasse;
 	private int credit;
 	private Boolean administrateur;
-	private ArrayList<ArticleVendu> listeVente = new ArrayList<>();
+	private ArrayList<Article> listeVente = new ArrayList<>();
 	private ArrayList<Enchere> listeEnchere = new ArrayList<>();
 	
 	
@@ -42,9 +42,9 @@ public class Utilisateur {
 	}
 
 
-	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+	public Utilisateur(int idUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
 			String rue, String codePostal, String ville, String motDePasse, int credit, Boolean administrateur) {
-		this.noUtilisateur = noUtilisateur;
+		this.idUtilisateur = idUtilisateur;
 		this.pseudo = pseudo;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -62,7 +62,7 @@ public class Utilisateur {
 
 	@Override
 	public String toString() {
-		return "Utilisateur [noUtilisateur=" + noUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
+		return "Utilisateur [noUtilisateur=" + idUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
 				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
 				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
 				+ ", administrateur=" + administrateur + ", listeVente=" + listeVente + ", listeEnchere=" + listeEnchere
@@ -75,10 +75,10 @@ public class Utilisateur {
 	// GETTERS SETTERS
 	
 	public int getNoUtilisateur() {
-		return noUtilisateur;
+		return idUtilisateur;
 	}
 	public void setNoUtilisateur(int noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
+		this.idUtilisateur = noUtilisateur;
 	}
 	public String getPseudo() {
 		return pseudo;
@@ -146,11 +146,11 @@ public class Utilisateur {
 	public void setAdministrateur(Boolean administrateur) {
 		this.administrateur = administrateur;
 	}
-	public ArrayList<ArticleVendu> getListeVente() {
+	public ArrayList<Article> getListeVente() {
 		return listeVente;
 	}
-	public void ajouterVente(ArticleVendu articleVendu) {
-		this.listeVente.add(articleVendu);
+	public void ajouterVente(Article article) {
+		this.listeVente.add(article);
 	}
 	public ArrayList<Enchere> getListeEnchere() {
 		return listeEnchere;

@@ -2,6 +2,8 @@ package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
 
+import fr.eni.trocenchere.bll.UtilisateurManager;
+import fr.eni.trocenchere.bo.Utilisateur;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -25,11 +27,27 @@ public class ServletConnexion extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//1 récuprérer les données
+		String pseudoCnx = request.getParameter("identifiant");
+		String motDePasseCnx = request.getParameter("mdp");
+		System.out.println("Pseudo : " + pseudoCnx + " Mot de passe : " + motDePasseCnx);
 		
+		//2 envoie les données à la BLL
 		
+		boolean connexionValide = UtilisateurManager.getInstance().verifIdentifiant(pseudoCnx, motDePasseCnx);
+		//3 si identifiants ok on part vers la page d'accueil
 		
-		doGet(request, response);
+		System.out.println(connexionValide);
+		if(connexionValide) {
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/accueil.jsp");
+			rd.forward(request, response);
+		}else {
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/connexion.jsp");
+			rd.forward(request, response);
+		}
+		
 	}
+
+
 
 }

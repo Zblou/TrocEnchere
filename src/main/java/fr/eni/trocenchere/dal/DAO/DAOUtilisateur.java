@@ -1,5 +1,12 @@
 package fr.eni.trocenchere.dal.DAO;
 
+
+import java.util.List;
+
+import fr.eni.trocenchere.bo.Utilisateur;
+
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,6 +27,11 @@ public interface DAOUtilisateur {
     Utilisateur selectUtilisateurByPseudo(String pseudo) throws DALException;
     HashMap<Integer, String> selectUtilisateursWithCurrentAuction() throws DALException;
     void updateCredit(int noUtilisateur, int newCredit) throws DALException;
+
+
+	List<Utilisateur> selectById();
+
+	Boolean verifMotDePasse(String pseudo, String motdePasse);
 
 }
 
