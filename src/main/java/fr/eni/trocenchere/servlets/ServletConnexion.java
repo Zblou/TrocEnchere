@@ -33,14 +33,19 @@ public class ServletConnexion extends HttpServlet {
 		System.out.println("Pseudo : " + pseudoCnx + " Mot de passe : " + motDePasseCnx);
 		
 		//2 envoie les données à la BLL
-		UtilisateurManager.getInstance().selectByPseudo();
 		
+		boolean connexionValide = UtilisateurManager.getInstance().verifIdentifiant(pseudoCnx, motDePasseCnx);
 		//3 si identifiants ok on part vers la page d'accueil
 		
+		System.out.println(connexionValide);
+		if(connexionValide) {
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/accueil.jsp");
+			rd.forward(request, response);
+		}else {
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/connexion.jsp");
+			rd.forward(request, response);
+		}
 		
-		
-		
-		doGet(request, response);
 	}
 
 

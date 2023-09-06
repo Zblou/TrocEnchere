@@ -6,6 +6,8 @@ import fr.eni.trocenchere.bo.Utilisateur;
 
 public interface DAOUtilisateur  {
 
-	List<Utilisateur> selectByPseudo();
+	List<Utilisateur> selectById();
+
+	Boolean verifMotDePasse(String pseudo, String motdePasse);
 
 }

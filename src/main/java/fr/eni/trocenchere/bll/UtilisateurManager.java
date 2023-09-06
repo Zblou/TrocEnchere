@@ -20,8 +20,12 @@ public class UtilisateurManager {
 	private UtilisateurManager() {};
 	
 	
-	public List<Utilisateur> selectByPseudo(){
-		return DAOFactory.getDAOUtilisateur().selectByPseudo();
+	public List<Utilisateur> selectById(){
+		return DAOFactory.getDAOUtilisateur().selectById();
+	}
+
+	public boolean verifIdentifiant(String pseudo, String motdePasse) {
+		return DAOFactory.getDAOUtilisateur().verifMotDePasse(pseudo, motdePasse);	
 	};
 	
 }
