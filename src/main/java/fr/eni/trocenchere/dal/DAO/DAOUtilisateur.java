@@ -1,23 +1,11 @@
 package fr.eni.trocenchere.dal.DAO;
 
 
-import java.util.List;
-
-import fr.eni.trocenchere.bo.Utilisateur;
-
-
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DALException;
-import fr.eni.trocenchere.dal.ErrorCodeDAL;
-import jakarta.servlet.RequestDispatcher;
 
 public interface DAOUtilisateur {
 	

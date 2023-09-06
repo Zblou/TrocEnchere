@@ -40,7 +40,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
 	}
 
-	private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = '?'";
+	private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = ?";
 
 	@Override
 	public List<Utilisateur> selectById() {
@@ -64,22 +64,21 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 			if (rs.next()) {
 				mdpBDD = rs.getString(1);
 				if (motdePasse.equals(mdpBDD)) {
+
 					mdpIdentique = true;
 				}
 
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return mdpIdentique;
 	}
 
 	@Override
 	public boolean checkForUniquePseudoAndMail(String pseudo, String mail) throws DALException {
-		
-		
-		
+
 		return false;
 	}
 

@@ -3,7 +3,6 @@ package fr.eni.trocenchere.servlets;
 import java.io.IOException;
 
 import fr.eni.trocenchere.bll.UtilisateurManager;
-import fr.eni.trocenchere.bo.Utilisateur;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
