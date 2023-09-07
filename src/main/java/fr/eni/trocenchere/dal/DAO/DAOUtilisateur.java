@@ -22,8 +22,9 @@ public interface DAOUtilisateur {
 
 	Boolean verifMotDePasse(String pseudo, String motdePasse);
 
-	void insert(Utilisateur utilisateur) throws BLLException;
-	Utilisateur insert();
+	void insert(Utilisateur utilisateur);
+	
+
 }
 
 

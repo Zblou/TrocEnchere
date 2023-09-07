@@ -34,4 +34,9 @@ public class ArticleManager {
 			DAOFactory.getDAOArticleJDBCIpml().verifArticle(ArticleName, DescriptionArticle, ArticleCategorie, MiseAPrix,
 					DebutEnchere, FinEnchere, RueDepot, CodePostalDepot, VilleDepot);
 	}
+
+	public void deleteArticle(int idArticleDelete) {
+		// TODO Auto-generated method stub
+		
+	}
 }

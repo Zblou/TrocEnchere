@@ -2,6 +2,7 @@ package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
 
+import fr.eni.trocenchere.bll.UtilisateurManager;
 import fr.eni.trocenchere.bo.Utilisateur;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -30,18 +31,18 @@ public class ServletInscription extends HttpServlet {
 		
 		
 		String pseudo = request.getParameter("pseudo");
-		String nom = request.getParameter("nom");;
-		String prenom = request.getParameter("prenom");;
-		String email = request.getParameter("email");;
-		String telephone = request.getParameter("telephone");;
-		String rue = request.getParameter("rue");;
-		String codePostal = request.getParameter("codePostal");;
-		String ville = request.getParameter("ville");;
-		String motDePasse = request.getParameter("mdp");;
+		String nom = request.getParameter("nom");
+		String prenom = request.getParameter("prenom");
+		String email = request.getParameter("email");
+		String telephone = request.getParameter("telephone");
+		String rue = request.getParameter("rue");
+		String codePostal = request.getParameter("codePostal");
+		String ville = request.getParameter("ville");
+		String motDePasse = request.getParameter("mdp");
 		
 		Utilisateur utilisateur = new Utilisateur();
 		
-				
+		UtilisateurManager.getInstance().insert(utilisateur);
 		
 		doGet(request, response);
 	}
