@@ -19,7 +19,7 @@ public class ServletAnnulerVente extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// ON ARRIVE ICI SI ON A CLIQUE SUR "ANNULER VENTE" DANS LA JSP MODIF ARTICLE
+		// ON ARRIVE ICI SI ON A CLIQUE SUR "ANNULER VENTE" DANS LA JSP MODIF ARTICLE !
 		int idArticleDelete = Integer.valueOf(request.getParameter("idObjetDelete"));
 		
 		try {
