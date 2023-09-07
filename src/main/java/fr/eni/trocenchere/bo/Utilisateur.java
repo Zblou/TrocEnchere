@@ -14,7 +14,7 @@ public class Utilisateur {
 	private String codePostal;
 	private String ville;
 	private String motDePasse;
-	private int credit;
+	private int credit = 100;
 	private Boolean administrateur;
 	private ArrayList<Article> listeVente = new ArrayList<>();
 	private ArrayList<Enchere> listeEnchere = new ArrayList<>();

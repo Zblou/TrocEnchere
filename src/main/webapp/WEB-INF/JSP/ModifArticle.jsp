@@ -28,13 +28,13 @@
 			<form class="row" method="POST" action="ServletModifArticle">
 			  <div class="row">
 			    <div class="col-4 pt-2"><label for="ArticleName" class="form-label">Article</label></div>
-			    <div class="col-8"><input type="text" class="form-control" name="ArticleName" id="ArticleName" required></div>
+			    <div class="col-8"><input type="text" class="form-control" name="ArticleName" id="ArticleName" value="${requestScope.ObjetAModif.getNomArticle() }" required></div>
 			  </div>
 			  <br>
 			  <br>
 			  <div class="row input-group">
 				  <div class="col-4 pt-2"><label class="form-label">Description</label></div>
-				  <div class="col-8"><textarea name="DescriptionArticle" class="form-control"></textarea></div>
+				  <div class="col-8"><textarea name="DescriptionArticle" class="form-control">${requestScope.ObjetAModif.getDescription() }</textarea></div>
 			  </div>
 			  <br>
 			  <br>
@@ -60,19 +60,19 @@
 			  <br>
 			  <div class="row">
 			  		<div class="col-4 pt-2"><label class="form-label" for="MiseAPrix">Mise à Prix</label></div>
-				    <div class="col-8"><input min="10" max="20" type="number" name="MiseAPrix" id="MiseAPrix" class="form-control" /></div>
+				    <div class="col-8"><input min="10" max="20" type="number" name="MiseAPrix" id="MiseAPrix" class="form-control" value="${requestScope.ObjetAModif.getMiseAPrix() }"  /></div>
 			  </div>
 			  <br>
 			  <br>
 			  <div class="row">
 			    <div class="col-4 pt-2"><label for="DebutEnchere" class="form-label">Date début enchère</label></div>
-			    <div class="col-8"><input type="date" class="form-control" name="DebutEnchere" id="DebutEnchere" required></div>
+			    <div class="col-8"><input type="date" class="form-control" name="DebutEnchere" id="DebutEnchere" value="${Date.valueOf(requestScope.ObjetAModif.getDateDebutEncheres()) }" required></div>
 			  </div>
 			  <br>
 			  <br>
 			  <div class="row">
 			    <div class="col-4 pt-2"><label for="FinEnchere" class="form-label">Date fin enchère</label></div>
-			    <div class="col-8"><input type="date" class="form-control" name="FinEnchere" id="FinEnchere" required></div>
+			    <div class="col-8"><input type="date" class="form-control" name="FinEnchere" id="FinEnchere" value="${Date.valueOf(requestScope.ObjetAModif.getDateFinEncheres()) }"required></div>
 			  </div>
 			  <br>
 			  <br>
