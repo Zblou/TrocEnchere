@@ -83,40 +83,5 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 		return mdpIdentique;
 	}
 
-	@Override
-	public boolean checkForUniquePseudoAndMail(String pseudo, String mail) throws DALException {
-
-		return false;
-	}
-
-	@Override
-	public boolean checkForUniquePseudo(String pseudo) throws DALException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean checkForUniqueMail(String mail) throws DALException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Utilisateur selectUtilisateurByPseudo(String pseudo) throws DALException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public HashMap<Integer, String> selectUtilisateursWithCurrentAuction() throws DALException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void updateCredit(int noUtilisateur, int newCredit) throws DALException {
-		// TODO Auto-generated method stub
-
-	}
 
 }

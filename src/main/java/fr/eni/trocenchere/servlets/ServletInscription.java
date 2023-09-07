@@ -40,9 +40,10 @@ public class ServletInscription extends HttpServlet {
 		String ville = request.getParameter("ville");
 		String motDePasse = request.getParameter("mdp");
 		
-		Utilisateur utilisateur = new Utilisateur();
-		
-		UtilisateurManager.getInstance().insert(utilisateur);
+		Utilisateur utilisateurUn = new Utilisateur();
+
+		UtilisateurManager.getInstance().insert(utilisateurUn);
+
 		
 		doGet(request, response);
 	}
