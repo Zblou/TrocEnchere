@@ -52,6 +52,8 @@ public class ServletConnexion extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/accueil.jsp");
 			rd.forward(request, response);
 		}else {
+
+			request.setAttribute("ConnexionInvalide", CodesErreurServlet.ERREUR_AUTHENTIFICATION);
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/connexion.jsp");
 			rd.forward(request, response);
 		}

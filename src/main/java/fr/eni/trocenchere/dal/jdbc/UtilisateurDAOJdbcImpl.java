@@ -10,8 +10,6 @@ import java.util.List;
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DALException;
 import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
-import fr.eni.trocenchere.servlets.BusinessException;
-import fr.eni.trocenchere.servlets.CodesErreurServlet;
 
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
