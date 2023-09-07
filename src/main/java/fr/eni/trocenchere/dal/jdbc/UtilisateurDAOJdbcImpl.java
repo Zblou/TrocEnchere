@@ -7,8 +7,11 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
+import fr.eni.javaee.module4.dal.CodesErreurDAL;
+import fr.eni.javaee.module4.servlets.BusinessException;
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DALException;
+import fr.eni.trocenchere.dal.ErrorCodeDAL;
 import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
 
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
@@ -24,16 +27,20 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.next()) {
-				utilisateur.setNoUtilisateur(rs.getInt(1));
+				utilisateur.setID_Utilisateur(rs.getInt(1));
 			}
 
 			cnx.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-
+			
 		}
-
+	
 	}
+	
+	
+	
+	
 
 	private void PreparedStatement(Utilisateur utilisateur, PreparedStatement stmt) {
 		// TODO Auto-generated method stub

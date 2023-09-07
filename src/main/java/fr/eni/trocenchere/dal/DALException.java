@@ -27,4 +27,9 @@ public class DALException extends Exception {
 		return sb.toString() ;
 	}
 
+	public void addError(int errorSqlSelect) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
