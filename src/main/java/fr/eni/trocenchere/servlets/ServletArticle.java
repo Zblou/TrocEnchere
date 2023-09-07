@@ -72,7 +72,7 @@ public class ServletArticle extends HttpServlet implements Servlet {
 		
 		// ON CREER UN USER EN ATTENDANT D'EN AVOIR DES VRAIS
 		Utilisateur user = new Utilisateur();
-		user.setIdUtilisateur(3);
+		user.setIdUtilisateur(2);
 		
 		Article art = new Article(ArticleName,
 								DescriptionArticle,
@@ -80,7 +80,7 @@ public class ServletArticle extends HttpServlet implements Servlet {
 								LocalDate.parse(FinEnchere),
 								Integer.valueOf(MiseAPrix),
 								user,
-								Categorie.valueOf(ArticleCategorie));
+								Categorie.valueOf(ArticleCategorie.toUpperCase()));
 		
 		ArticleManager.getInstance().insertArticle(art);
 	}

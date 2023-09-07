@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<title>CreationEnchere</title>
+<title>ModificationVente</title>
 </head>
 <body>
 <div class="container text-center">
@@ -13,7 +14,7 @@
 	<br>
 	<div class="row">
 		<div class="col-4"><a href="ServletAccueil">ENI-Enchères</a></div>
-		<div class="col-4"><h3>Nouvelle vente</h3></div>
+		<div class="col-4"><h3>Modification Vente</h3></div>
 	</div>
 	<br>
 	<br>
@@ -24,7 +25,7 @@
 		<div class="col-4"><img alt="ENCHERE" class="img-fluid" src="https://cdn.pixabay.com/photo/2014/04/03/10/45/hammer-311343_1280.png"></div>
 		
 		<div class="col-6">
-			<form class="row" method="POST" action="ServletArticle">
+			<form class="row" method="POST" action="ServletModifArticle">
 			  <div class="row">
 			    <div class="col-4 pt-2"><label for="ArticleName" class="form-label">Article</label></div>
 			    <div class="col-8"><input type="text" class="form-control" name="ArticleName" id="ArticleName" required></div>
@@ -103,6 +104,10 @@
 			    <div class="col-4">
 			    <br>
 			    	<a class="btn btn-primary" href="ServletAccueil">Retour</a>
+			    </div>
+			    <div class="col-4">
+			    <br>
+			    	<a class="btn btn-primary" href="ServletAnnulerVente">Annuler Vente</a>
 			    </div>
 			  </div>
 			</form>

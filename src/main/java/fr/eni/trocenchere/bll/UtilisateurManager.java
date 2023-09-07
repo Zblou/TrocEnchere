@@ -22,8 +22,8 @@ public class UtilisateurManager {
 	
 	private UtilisateurManager() {};//CONSTRUCTEUR PAR DEFAUT EN PRIVATE POUR PAS INSTANCIER DE L EXTERIEUR
 	
-	public Utilisateur insert(Utilisateur utilisateur){
-		return DAOFactory.getDAOUtilisateur().insert();
+	public void insert(Utilisateur utilisateur){
+		DAOFactory.getDAOUtilisateur().insert(utilisateur);
 	}
 	
 	public List<Utilisateur> selectById(){
@@ -33,5 +33,6 @@ public class UtilisateurManager {
 	public boolean verifIdentifiant(String pseudo, String motdePasse) {
 		return DAOFactory.getDAOUtilisateur().verifMotDePasse(pseudo, motdePasse);	
 	}
+
 
 }

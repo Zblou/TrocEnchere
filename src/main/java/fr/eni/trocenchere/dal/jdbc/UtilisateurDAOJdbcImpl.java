@@ -32,12 +32,10 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.next()) {
-
+				
 				utilisateur.setIdUtilisateur(rs.getInt(1));
 
 			}
-
-			cnx.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 
@@ -85,13 +83,5 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 		return mdpIdentique;
 	}
 
-
-
-
-	@Override
-	public Utilisateur insert() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
