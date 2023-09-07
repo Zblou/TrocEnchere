@@ -13,18 +13,28 @@ import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
 
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
-	public void insert(Utilisateur utilisateur) throws DALException {
+	public void insert(Utilisateur utilisateur) {
 		Connection cnx = JDBCTools.connect();
 		try {
 			String INSERT = "INSERT INTO UTILISATEURS "
 					+ "(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe) "
 					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement stmt = cnx.prepareStatement(INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
-			PreparedStatement(utilisateur, stmt);
+			stmt.setString(1, utilisateur.getPseudo());
+			stmt.setString(2, utilisateur.getNom());
+			stmt.setString(3, utilisateur.getPrenom());
+			stmt.setString(4, utilisateur.getEmail());
+			stmt.setString(5, utilisateur.getTelephone());
+			stmt.setString(6, utilisateur.getRue());
+			stmt.setString(7, utilisateur.getCodePostal());
+			stmt.setString(8, utilisateur.getVille());
+			stmt.setString(9, utilisateur.getMotDePasse());
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.next()) {
+
 				utilisateur.setIdUtilisateur(rs.getInt(1));
+
 			}
 
 			cnx.close();
@@ -35,10 +45,9 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
 	}
 
-	private void PreparedStatement(Utilisateur utilisateur, PreparedStatement stmt) {
-		// TODO Auto-generated method stub
+	
+	
 
-	}
 
 	private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = ?";
 
@@ -110,6 +119,14 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 	public void updateCredit(int noUtilisateur, int newCredit) throws DALException {
 		// TODO Auto-generated method stub
 
+	}
+
+
+
+	@Override
+	public Utilisateur insert() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

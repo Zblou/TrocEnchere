@@ -2,6 +2,7 @@ package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
 
+import fr.eni.trocenchere.bo.Utilisateur;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -38,9 +39,9 @@ public class ServletInscription extends HttpServlet {
 		String ville = request.getParameter("ville");;
 		String motDePasse = request.getParameter("mdp");;
 		
+		Utilisateur utilisateur = new Utilisateur();
 		
-		
-		
+				
 		
 		doGet(request, response);
 	}
