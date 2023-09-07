@@ -12,7 +12,7 @@
 <header>
 	<br>
 	<div class="row">
-		<div class="col-4"><a href="Acceuil">ENI-Enchères</a></div>
+		<div class="col-4"><a href="ServletAccueil">ENI-Enchères</a></div>
 		<div class="col-4"><h3>Nouvelle vente</h3></div>
 	</div>
 	<br>
@@ -102,7 +102,7 @@
 			    </div>
 			    <div class="col-4">
 			    <br>
-			    	<a class="btn btn-primary" href="">Retour</a>
+			    	<a class="btn btn-primary" href="ServletAccueil">Retour</a>
 			    </div>
 			  </div>
 			</form>

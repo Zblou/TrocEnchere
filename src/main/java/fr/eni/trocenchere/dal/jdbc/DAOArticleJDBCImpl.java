@@ -12,7 +12,7 @@ import fr.eni.trocenchere.dal.DAO.DAOArticle;
 public class DAOArticleJDBCImpl implements DAOArticle{
 
 	private static final String INSERTION_ARTICLE = "INSERT INTO ARTICLES(nom_article, description,"
-			+ " date_debut_enchere, date_fin_enchere, prix_initial, id_utilisateur, id_categorie)"
+			+ " date_debut_encheres, date_fin_encheres, prix_initial, id_utilisateur, id_categorie)"
 			+ " VALUES (? , ? , ? , ? , ? , ? , ?);";
 	
 	@Override

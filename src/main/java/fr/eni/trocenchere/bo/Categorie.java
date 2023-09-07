@@ -4,16 +4,19 @@ import java.util.ArrayList;
 
 public enum Categorie {
 
-	INFORMATIQUE,
-	AMEUBLEMENT,
-	VETEMENTS,
-	SPORTSLOISIRS;
+	INFORMATIQUE(1),
+	AMEUBLEMENT(2),
+	VETEMENTS(3),
+	SPORTSLOISIRS(4);
 	
 	private int idCategorie;
 	private String libelle;
 	private ArrayList<Article> listeArticle = new ArrayList<>();
 	
 	
+	private Categorie(int idCategorie) {
+		this.idCategorie = idCategorie;
+	}
 	// GETTERS SETTERS
 	
 	public int getIdCategorie() {
