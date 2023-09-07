@@ -14,7 +14,7 @@
 	<br>
 	<div class="row">
 		<div class="col-4"><a href="ServletAccueil">ENI-Enchères</a></div>
-		<div class="col-4"><h3>Modification Vente</h3></div>
+		<div class="col-4"><h3>Modification Vente </h3>N°${requestScope.ObjetAModif.getIdArticle() }</div>
 	</div>
 	<br>
 	<br>
@@ -60,19 +60,19 @@
 			  <br>
 			  <div class="row">
 			  		<div class="col-4 pt-2"><label class="form-label" for="MiseAPrix">Mise à Prix</label></div>
-				    <div class="col-8"><input min="10" max="20" type="number" name="MiseAPrix" id="MiseAPrix" class="form-control" value="${requestScope.ObjetAModif.getMiseAPrix() }"  /></div>
+				    <div class="col-8"><input min="100" type="number" name="MiseAPrix" id="MiseAPrix" class="form-control" value="${requestScope.ObjetAModif.getMiseAPrix() }"  /></div>
 			  </div>
 			  <br>
 			  <br>
 			  <div class="row">
 			    <div class="col-4 pt-2"><label for="DebutEnchere" class="form-label">Date début enchère</label></div>
-			    <div class="col-8"><input type="date" class="form-control" name="DebutEnchere" id="DebutEnchere" value="${Date.valueOf(requestScope.ObjetAModif.getDateDebutEncheres()) }" required></div>
+			    <div class="col-8"><input type="date" class="form-control" name="DebutEnchere" id="DebutEnchere" value="${requestScope.ObjetAModif.getDateDebutEncheres() }" required></div>
 			  </div>
 			  <br>
 			  <br>
 			  <div class="row">
 			    <div class="col-4 pt-2"><label for="FinEnchere" class="form-label">Date fin enchère</label></div>
-			    <div class="col-8"><input type="date" class="form-control" name="FinEnchere" id="FinEnchere" value="${Date.valueOf(requestScope.ObjetAModif.getDateFinEncheres()) }"required></div>
+			    <div class="col-8"><input type="date" class="form-control" name="FinEnchere" id="FinEnchere" value="${requestScope.ObjetAModif.getDateFinEncheres() }"required></div>
 			  </div>
 			  <br>
 			  <br>
@@ -109,6 +109,10 @@
 			    <br>
 			    	<a class="btn btn-primary" href="ServletAnnulerVente">Annuler Vente</a>
 			    </div>
+			  </div>
+			  
+			  <div>
+			  	<input type="text" name="idObjetModif" value="${requestScope.ObjetAModif.getIdArticle() }" hidden="true">
 			  </div>
 			</form>
 		</div>

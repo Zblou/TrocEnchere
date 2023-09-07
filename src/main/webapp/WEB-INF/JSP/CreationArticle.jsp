@@ -59,7 +59,7 @@
 			  <br>
 			  <div class="row">
 			  		<div class="col-4 pt-2"><label class="form-label" for="MiseAPrix">Mise à Prix</label></div>
-				    <div class="col-8"><input min="10" max="20" type="number" name="MiseAPrix" id="MiseAPrix" class="form-control" /></div>
+				    <div class="col-8"><input min="100" type="number" name="MiseAPrix" id="MiseAPrix" class="form-control" /></div>
 			  </div>
 			  <br>
 			  <br>
