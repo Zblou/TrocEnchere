@@ -13,7 +13,7 @@ import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
 
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
-	public void insert(Utilisateur utilisateur) throws DALException {
+	public void insert(Utilisateur utilisateur) {
 		Connection cnx = JDBCTools.connect();
 		try {
 			String INSERT = "INSERT INTO UTILISATEURS "
