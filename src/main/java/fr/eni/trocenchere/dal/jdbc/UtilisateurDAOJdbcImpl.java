@@ -4,18 +4,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
 
 import fr.eni.trocenchere.bo.Utilisateur;
-import fr.eni.trocenchere.dal.DALException;
 import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
 
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
 	public void insert(Utilisateur utilisateur) {
-		Connection cnx = JDBCTools.connect();
-		try {
+		
+		try (Connection cnx = ConnexionProvider.getConnection();){
 			String INSERT = "INSERT INTO UTILISATEURS "
 					+ "(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe) "
 					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";

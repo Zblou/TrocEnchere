@@ -31,9 +31,7 @@
 	<br>
 	<br>
 	<c:if test="${!empty ConnexionInvalide }">
-		<p style="color: red">Erreur lors de la connexion</p>
-
-		<p>${LecteurMessage.getMessagesErreur(ConnexionInvalide) }</p>
+		<p style="color: red">${LecteurMessage.getMessagesErreur(ConnexionInvalide) }</p>
 	</c:if>
 
 	<div class="row">
@@ -70,7 +68,7 @@
 			<br> <br> <br>
 		</form>
 	</div>
-	<a href="" class="btn btn-primary">Créer un compte</a>
+	<a href="ServletInscription" class="btn btn-primary">Créer un compte</a>
 </body>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

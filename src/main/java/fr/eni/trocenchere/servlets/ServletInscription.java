@@ -29,7 +29,7 @@ public class ServletInscription extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		//recupération des valeurs du formulaire
 		String pseudo = request.getParameter("pseudo");
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
@@ -38,12 +38,13 @@ public class ServletInscription extends HttpServlet {
 		String rue = request.getParameter("rue");
 		String codePostal = request.getParameter("codePostal");
 		String ville = request.getParameter("ville");
-		String motDePasse = request.getParameter("mdp");
+		String motDePasse = request.getParameter("motdepasse");
 		
-		Utilisateur utilisateurUn = new Utilisateur();
+		Utilisateur nouveauUtilisateur = new Utilisateur(pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse);
 
-		UtilisateurManager.getInstance().insert(utilisateurUn);
+		UtilisateurManager.getInstance().insert(nouveauUtilisateur);
 
+		System.out.println(nouveauUtilisateur);
 		
 		doGet(request, response);
 	}
