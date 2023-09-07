@@ -20,6 +20,9 @@ public interface DAOUtilisateur {
 	List<Utilisateur> selectById();
 
 	Boolean verifMotDePasse(String pseudo, String motdePasse);
+	
+	Utilisateur insert();
+
 
 }
 

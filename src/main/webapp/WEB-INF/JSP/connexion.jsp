@@ -12,7 +12,7 @@
 <header>
 	<br>
 	<div class="row">
-		<div class="col-4"><a href="Acceuil">ENI-Enchères</a></div>
+		<div class="col-4"><a href="ServletAccueil">ENI-Enchères</a></div>
 	</div>
 	<br>
 	<br>
@@ -30,7 +30,7 @@
 					<label for="identifiant" class="form-label">Identifiant</label>
 				</div>
 				<div class="col-2">
-				<input type="text" name="identifiant" id="identifiant" class="form-control">
+					<input type="text" name="identifiant" id="identifiant" class="form-control">
 				</div>
 			</div>
 			<br>

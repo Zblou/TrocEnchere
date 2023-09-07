@@ -62,7 +62,7 @@ public class Utilisateur {
 
 	@Override
 	public String toString() {
-		return "Utilisateur [noUtilisateur=" + idUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
+		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
 				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
 				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
 				+ ", administrateur=" + administrateur + ", listeVente=" + listeVente + ", listeEnchere=" + listeEnchere
@@ -74,11 +74,11 @@ public class Utilisateur {
 	
 	// GETTERS SETTERS
 	
-	public int getNoUtilisateur() {
+	public int getIdUtilisateur() {
 		return idUtilisateur;
 	}
-	public void setNoUtilisateur(int noUtilisateur) {
-		this.idUtilisateur = noUtilisateur;
+	public void setIdUtilisateur(int idUtilisateur) {
+		this.idUtilisateur = idUtilisateur;
 	}
 	public String getPseudo() {
 		return pseudo;

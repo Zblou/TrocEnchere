@@ -8,7 +8,7 @@ import fr.eni.trocenchere.dal.DAO.DAOFactory;
 public class UtilisateurManager {
 	
 	//SINGLETON
-	public static UtilisateurManager instance;
+	private static UtilisateurManager instance = null;
 	
 	public static UtilisateurManager getInstance() {
 		if(instance == null) {
@@ -17,8 +17,14 @@ public class UtilisateurManager {
 		return instance;
 	}
 	
-	private UtilisateurManager() {};
+	//FIN SINGLETON
 	
+	
+	private UtilisateurManager() {};//CONSTRUCTEUR PAR DEFAUT EN PRIVATE POUR PAS INSTANCIER DE L EXTERIEUR
+	
+	public Utilisateur insert(){
+		return DAOFactory.getDAOUtilisateur().insert();
+	}
 	
 	public List<Utilisateur> selectById(){
 		return DAOFactory.getDAOUtilisateur().selectById();
@@ -26,6 +32,6 @@ public class UtilisateurManager {
 
 	public boolean verifIdentifiant(String pseudo, String motdePasse) {
 		return DAOFactory.getDAOUtilisateur().verifMotDePasse(pseudo, motdePasse);	
-	};
-	
+	}
+
 }

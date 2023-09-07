@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 
 @WebServlet("/ServletConnexion")
@@ -21,20 +22,25 @@ public class ServletConnexion extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/connexion.jsp");
 		rd.forward(request, response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//1 récuprérer les données
+		//Création de ma session
+		HttpSession session = request.getSession();
+		
+		
+		// récuprérer les données
 		String pseudoCnx = request.getParameter("identifiant");
 		String motDePasseCnx = request.getParameter("mdp");
 		System.out.println("Pseudo : " + pseudoCnx + " Mot de passe : " + motDePasseCnx);
 		
-		//2 envoie les données à la BLL
+		// envoie les données à la BLL
 		
 		boolean connexionValide = UtilisateurManager.getInstance().verifIdentifiant(pseudoCnx, motDePasseCnx);
-		//3 si identifiants ok on part vers la page d'accueil
+		
+		// si identifiants ok on part vers la page d'accueil
 		
 		System.out.println(connexionValide);
 		if(connexionValide) {
