@@ -22,7 +22,7 @@ public class UtilisateurManager {
 	
 	private UtilisateurManager() {};//CONSTRUCTEUR PAR DEFAUT EN PRIVATE POUR PAS INSTANCIER DE L EXTERIEUR
 	
-	public Utilisateur insert(){
+	public Utilisateur insert(Utilisateur utilisateur){
 		return DAOFactory.getDAOUtilisateur().insert();
 	}
 	
