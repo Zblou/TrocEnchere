@@ -19,7 +19,7 @@ public interface DAOUtilisateur {
 
 	List<Utilisateur> selectById();
 
-	Boolean verifMotDePasse(String pseudo, String motdePasse);
+	Boolean verifMotDePasse(String pseudo, String motdePasse) ;
 
 }
 

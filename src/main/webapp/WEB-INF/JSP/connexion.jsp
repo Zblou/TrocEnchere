@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ page import="fr.eni.trocenchere.messages.LecteurMessage" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +26,15 @@
 	<br>
 	<br>
 	<br>
+	<c:if test="${!empty listeCodesErreur }">
+		<p style="color:red">Erreur lors de la connexion</p>
+		<ul>
+			<c:forEach items="${listeCodesErreur }" var="code">
+				<p>${LecteurMessage.getMessageErreur(code) }</p>
+			</c:forEach>
+		</ul>
+	</c:if>
+
 	<div class="row">
 		<form method="POST" action="" class="row">
 			<div class="row justify-content-center">

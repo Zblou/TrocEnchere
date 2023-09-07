@@ -27,6 +27,9 @@ public class ServletConnexion extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
 		//Création de ma session
 		HttpSession session = request.getSession();
 		
@@ -43,6 +46,8 @@ public class ServletConnexion extends HttpServlet {
 		// si identifiants ok on part vers la page d'accueil
 		
 		System.out.println(connexionValide);
+		
+		
 		if(connexionValide) {
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/accueil.jsp");
 			rd.forward(request, response);
@@ -50,6 +55,7 @@ public class ServletConnexion extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/connexion.jsp");
 			rd.forward(request, response);
 		}
+		
 		
 	}
 

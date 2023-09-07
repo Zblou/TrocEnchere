@@ -10,6 +10,8 @@ import java.util.List;
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DALException;
 import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
+import fr.eni.trocenchere.servlets.BusinessException;
+import fr.eni.trocenchere.servlets.CodesErreurServlet;
 
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
@@ -49,7 +51,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 	}
 
 	@Override
-	public Boolean verifMotDePasse(String pseudo, String motdePasse) {
+	public Boolean verifMotDePasse(String pseudo, String motdePasse){
 
 		boolean mdpIdentique = false;
 		String mdpBDD = null;
@@ -72,7 +74,10 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		}
+		
+		
 		return mdpIdentique;
 	}
 
