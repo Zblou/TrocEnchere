@@ -4,6 +4,7 @@ package fr.eni.trocenchere.dal.DAO;
 import java.util.HashMap;
 import java.util.List;
 
+import fr.eni.trocenchere.bll.BLLException;
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DALException;
 
@@ -21,6 +22,8 @@ public interface DAOUtilisateur {
 
 	Boolean verifMotDePasse(String pseudo, String motdePasse) ;
 
+	void insert(Utilisateur utilisateur) throws BLLException;
+	Utilisateur insert();
 }
 
 

@@ -15,7 +15,7 @@ import fr.eni.trocenchere.servlets.CodesErreurServlet;
 
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
-	public void insert(Utilisateur utilisateur) throws DALException {
+	public void insert(Utilisateur utilisateur) {
 		Connection cnx = JDBCTools.connect();
 		try {
 			String INSERT = "INSERT INTO UTILISATEURS "
@@ -26,7 +26,9 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.next()) {
+
 				utilisateur.setIdUtilisateur(rs.getInt(1));
+
 			}
 
 			cnx.close();
@@ -37,6 +39,8 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
 	}
 
+	
+	
 	private void PreparedStatement(Utilisateur utilisateur, PreparedStatement stmt) {
 		// TODO Auto-generated method stub
 
@@ -115,6 +119,14 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 	public void updateCredit(int noUtilisateur, int newCredit) throws DALException {
 		// TODO Auto-generated method stub
 
+	}
+
+
+
+	@Override
+	public Utilisateur insert() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
