@@ -7,6 +7,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
+
+import fr.eni.trocenchere.bo.Article;
+import fr.eni.trocenchere.bo.Categorie;
+import fr.eni.trocenchere.bo.Utilisateur;
 
 @WebServlet("/ServletModifArticle")
 public class ServletModifArticle extends HttpServlet {
@@ -34,6 +40,10 @@ public class ServletModifArticle extends HttpServlet {
 			System.out.println("doGet de ServletModifArticle Mais sans avoir pu envoyer l'objet à modifier.");
 			
 			// A ENLEVER !!! JUSTE LA CAR ON A PAS ENCORE L'OBJET A MODIF ENVOYER DE L'ACCEUIL
+			Utilisateur usr = new Utilisateur();
+			request.setAttribute("ObjetAModif", new Article(4, "Article2ouf", "Un article vraiment super", LocalDate.now(),
+															LocalDate.of(2023, 9, 10), 100, 200, usr, Categorie.SPORTSLOISIRS));
+			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/ModifArticle.jsp");
 			rd.forward(request, response);
 		}
