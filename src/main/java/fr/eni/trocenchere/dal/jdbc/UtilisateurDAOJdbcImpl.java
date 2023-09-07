@@ -24,7 +24,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.next()) {
-				utilisateur.setNoUtilisateur(rs.getInt(1));
+				utilisateur.setIdUtilisateur(rs.getInt(1));
 			}
 
 			cnx.close();
