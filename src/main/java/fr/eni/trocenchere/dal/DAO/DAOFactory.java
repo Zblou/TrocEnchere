@@ -3,7 +3,7 @@ package fr.eni.trocenchere.dal.DAO;
 
 import fr.eni.trocenchere.dal.jdbc.DAOArticleJDBCImpl;
 import fr.eni.trocenchere.dal.jdbc.DAOCategorieJDBCImpl;
-import fr.eni.trocenchere.dal.jdbc.DAOEnchereJDBCImpl;
+
 import fr.eni.trocenchere.dal.jdbc.UtilisateurDAOJdbcImpl;
 
 public class DAOFactory {
@@ -16,10 +16,7 @@ public class DAOFactory {
     	return new DAOArticleJDBCImpl();
     }
     
-    public static DAOEnchere getDAOEnchereJDBCImpl() {
-    	return new DAOEnchereJDBCImpl();
-    }
-    
+   
     public static DAOCategorie getDAOCategorieJDBCImpl() {
     	return new DAOCategorieJDBCImpl();
     }
