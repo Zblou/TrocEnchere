@@ -17,7 +17,7 @@ public class DAOFactory {
     }
     
    
-    public static DAOCategorie getDAOCategorieJDBCImpl() {
+    public static DAOCategoriedavid getDAOCategorieJDBCImpl() {
     	return new DAOCategorieJDBCImpl();
     }
     

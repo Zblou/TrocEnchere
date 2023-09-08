@@ -17,11 +17,11 @@
 </head>
 <body>
 
-	<form methode="POST" action="">
+	<form method="POST" action="ServletCategorie">
 
 		<img alt="Art et Decoration" src="Telecharement/ArtEtFenetre.jpg" width="150px" height="150px">
-		<label for="ArtEtFenetre">Art et Décoration : </label>
-		<input type="text" id="ArtEtFenetre" name="ArtEtFenetre" required><br>
+		<label for="ArtEtFenetre"></label>
+		<input type="text">
 		<br>
 		
 		 <input type="button" value="Valider">
