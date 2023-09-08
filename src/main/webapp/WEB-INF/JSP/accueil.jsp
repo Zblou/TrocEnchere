@@ -25,7 +25,7 @@
 							<a class="nav-link">Enchères</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link">Vendre un article</a>
+							<a class="nav-link" href="ServletArticle">Vendre un article</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="ServletProfil">Mon profil</a>

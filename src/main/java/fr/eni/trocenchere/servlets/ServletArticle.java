@@ -59,19 +59,21 @@ public class ServletArticle extends HttpServlet implements Servlet {
 		
 		// SI LA VERIF S'EST BIEN PASSEE ON CREE L'OBJET ET ON L'INSERE EN BDD
 		
-		// ON CREER UN USER EN ATTENDANT D'EN AVOIR DES VRAIS
-		Utilisateur user = new Utilisateur();
-		user.setIdUtilisateur(2);
+		Utilisateur currentUser = (Utilisateur) request.getSession().getAttribute("sessionUtilisateur");
+		
 		
 		Article art = new Article(ArticleName,
 								DescriptionArticle,
 								LocalDate.parse(DebutEnchere),
 								LocalDate.parse(FinEnchere),
 								Integer.valueOf(MiseAPrix),
-								user,
+								currentUser,
 								Categorie.valueOf(ArticleCategorie.toUpperCase()));
 		
 		ArticleManager.getInstance().insertArticle(art, RueDepot, CodePostalDepot, VilleDepot);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("ServletAccueil");
+		rd.forward(request, response);
 	}
 
 }

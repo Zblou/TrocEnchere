@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,19 +81,40 @@
 			  </div>
 			  <div class="col-10 offset-1">
 			  	<fieldset class="border">
-			  		<legend>Dépôt</legend>
-					  <div class="row">
-					    <div class="col-4 pt-2"><label for="RueDepot" class="form-label">Rue</label></div>
-					    <div class="col-8"><input type="text" class="form-control" name="RueDepot" id="RueDepot" required></div>
-					  </div>
-					  <div class="row">
-					    <div class="col-4 pt-2"><label for="CodePostalDepot" class="form-label">Code Postal</label></div>
-					    <div class="col-8"><input type="text" class="form-control" name="CodePostalDepot" id="CodePostalDepot" required></div>
-					  </div>
-					  <div class="row">
-					    <div class="col-4 pt-2"><label for="VilleDepot" class="form-label">Ville</label></div>
-					    <div class="col-8"><input type="text" class="form-control" name="VilleDepot" id="VilleDepot" required></div>
-					  </div>
+			  		<legend>Dépôt</legend> 
+				    <c:choose>
+				    
+				    	<c:when test="${!empty sessionScope.sessionUtilisateur }">
+					      <div class="row">
+					    		<div class="col-4 pt-2"><label for="RueDepot" class="form-label">Rue</label></div>
+					    		<div class="col-8"><input type="text" class="form-control" name="RueDepot" id="RueDepot" value="${sessionScope.sessionUtilisateur.rue }" required></div>
+					      </div>
+						  <div class="row">
+						    <div class="col-4 pt-2"><label for="CodePostalDepot" class="form-label">Code Postal</label></div>
+						    <div class="col-8"><input type="text" class="form-control" name="CodePostalDepot" id="CodePostalDepot" value="${sessionScope.sessionUtilisateur.codePostal }" required></div>
+						  </div>
+						  <div class="row">
+						    <div class="col-4 pt-2"><label for="VilleDepot" class="form-label">Ville</label></div>
+						    <div class="col-8"><input type="text" class="form-control" name="VilleDepot" id="VilleDepot" value="${sessionScope.sessionUtilisateur.ville }" required></div>
+						  </div>				    	
+				    	</c:when>
+				    	
+				    	<c:otherwise>
+				    		<div class="row">
+					    		<div class="col-4 pt-2"><label for="RueDepot" class="form-label">Rue</label></div>
+					    		<div class="col-8"><input type="text" class="form-control" name="RueDepot" id="RueDepot" required></div>
+					      	</div>
+							<div class="row">
+							   <div class="col-4 pt-2"><label for="CodePostalDepot" class="form-label">Code Postal</label></div>
+							   <div class="col-8"><input type="text" class="form-control" name="CodePostalDepot" id="CodePostalDepot" required></div>
+							</div>
+							<div class="row">
+							   <div class="col-4 pt-2"><label for="VilleDepot" class="form-label">Ville</label></div>
+							   <div class="col-8"><input type="text" class="form-control" name="VilleDepot" id="VilleDepot" required></div>
+							</div>
+				    	</c:otherwise>
+				    	
+				    </c:choose>
 			  	</fieldset>
 			  </div>
 			  <div class="row justify-content-center">
