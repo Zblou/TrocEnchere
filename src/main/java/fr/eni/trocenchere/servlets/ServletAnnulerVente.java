@@ -19,20 +19,20 @@ public class ServletAnnulerVente extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		System.out.println("doGet d'annulerVenteArticle");
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// ON ARRIVE ICI SI ON A CLIQUE SUR "ANNULER VENTE" DANS LA JSP MODIF ARTICLE !
-		int idArticleDelete = Integer.valueOf(request.getParameter("idObjetDelete"));
 		
+		int idArticleDelete = Integer.valueOf(request.getParameter("idObjetDelete"));
+		System.out.println("ID de l'objet à delete : " + idArticleDelete);
 		try {
 			ArticleManager.getInstance().deleteArticle(idArticleDelete);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

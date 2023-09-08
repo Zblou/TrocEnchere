@@ -43,10 +43,10 @@
 			  <div class="col-4 pt-2"><label for="ArticleCategorie" class="form-label">Catégorie</label></div>
 			  <div class="col-8">
 				    <select class="form-select" name="ArticleCategorie" id="ArticleCategorie" required>
-				      <option value="Informatique">Informatique</option>
-				      <option value="Ameublement">Ameublement</option>
-				      <option value="Vetement">Vêtement</option>
-				      <option value="SportLoisirs">Sports & Loisirs</option>
+				      <option value="INFORMATIQUE">Informatique</option>
+				      <option value="AMEUBLEMENT">Ameublement</option>
+				      <option value="VETEMENTS">Vêtement</option>
+				      <option value="SPORTSLOISIRS">Sports & Loisirs</option>
 				    </select>
 			  </div>
 			  </div>
@@ -99,15 +99,11 @@
 			  <div class="row justify-content-center">
 			  	<div class="col-4">
 			  	<br>
-			    	<button class="btn btn-primary" type="submit">Enregistrer</button>
+			    	<button class="btn btn-success" type="submit">Enregistrer</button>
 			    </div>
 			    <div class="col-4">
 			    <br>
 			    	<a class="btn btn-primary" href="ServletAccueil">Retour</a>
-			    </div>
-			    <div class="col-4">
-			    <br>
-			    	<a class="btn btn-primary" href="ServletAnnulerVente">Annuler Vente</a>
 			    </div>
 			  </div>
 			  
@@ -115,6 +111,17 @@
 			  	<input type="text" name="idObjetModif" value="${requestScope.ObjetAModif.getIdArticle() }" hidden="true">
 			  </div>
 			</form>
+			
+			<form method="POST" action="ServletAnnulerVente">
+				<div class="col-4 offset-4">
+			    <br>
+			    	<button class="btn btn-danger" type="submit">Supprimer Vente</button>
+			    </div>
+			     <div>
+			  	<input type="text" name="idObjetDelete" value="${requestScope.ObjetAModif.getIdArticle() }" hidden="true">
+			  </div>
+			</form>
+			
 		</div>
 	
 	</div>

@@ -71,7 +71,7 @@ public class ServletArticle extends HttpServlet implements Servlet {
 								user,
 								Categorie.valueOf(ArticleCategorie.toUpperCase()));
 		
-		ArticleManager.getInstance().insertArticle(art);
+		ArticleManager.getInstance().insertArticle(art, RueDepot, CodePostalDepot, VilleDepot);
 	}
 
 }
