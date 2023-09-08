@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.time.LocalDate;
+
 
 import fr.eni.trocenchere.bo.Article;
 import fr.eni.trocenchere.bo.Categorie;
@@ -26,6 +30,8 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 			+ " WHERE id_article=?;";
 	
 	private static final String SUPPRESSION_ARTICLE = "DELETE FROM ARTICLES WHERE id_article=?;";
+	
+	private static final String SELECT_ALL_ARTICLES = "SELECT * FROM ARTICLES;";
 	
 	// UTILE SEULEMENT SI ON NE FAIT PAS LE ON DELETE CASCADE DANS LA BDD
 	// private static final String SUPPRESSION_RETRAIT = "DELETE FROM RETRAITS WHERE id_article=?;";
@@ -126,6 +132,51 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}		
+	}
+
+	@Override
+	public ArrayList<Article> selectAllArticles() {
+		
+		ArrayList<Article> listeArticle = new ArrayList<>();
+		
+		try(Connection cnx = ConnexionProvider.getConnection()){
+			
+			Statement s = cnx.createStatement();
+			ResultSet rs = s.executeQuery(SELECT_ALL_ARTICLES);
+			
+			while(rs.next()) {
+				int idArticle = rs.getInt("id_article");
+				String nomArticle = rs.getString("nom_article");
+				String description = rs.getString("description");
+				LocalDate dateDebutEnchere = rs.getDate("date_debut_encheres").toLocalDate();
+				LocalDate dateFinEnchere = rs.getDate("date_fin_encheres").toLocalDate();
+				int prixInitial = rs.getInt("prix_initial");
+				int prixVente = rs.getInt("prix_vente");
+				int idutilisateur = rs.getInt("id_utilisateur");
+				int idCategorie = rs.getInt("id_categorie");
+				
+				// UTILISATEUR ET CATEGORIE ID A TRANSFORMER EN OBJETS
+				
+				listeArticle.add(new Article(rs.getInt("id_article"),
+											rs.getString("nom_article"),
+											rs.getString("description"),
+											rs.getDate("date_debut_encheres").toLocalDate(),
+											rs.getDate("date_fin_encheres").toLocalDate(),
+											rs.getInt("prix_initial"),
+											rs.getInt("prix_vente"),
+											rs.getInt("id_utilisateur"),
+											rs.getInt("id_categorie")
+											));
+
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("ERREUR SELECT ALL ARTICLE");
+		}
+		
+		return null;
 	}
 
 }

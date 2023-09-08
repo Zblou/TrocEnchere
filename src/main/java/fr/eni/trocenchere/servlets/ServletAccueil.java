@@ -2,6 +2,7 @@ package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
 
+import fr.eni.trocenchere.bll.ArticleManager;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,8 +14,12 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ServletAccueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	// DEMANDER JULIEN COMMENT STOCKER PHOTOS BDD ET COMMENT GENERER AUTOMATIQUEMENT LES ANNOTATIONS
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		ArticleManager.getInstance().selectAllArticles();
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/accueil.jsp");
 		rd.forward(request, response);
 	}
