@@ -19,19 +19,19 @@
 				<div class="col-6 offset-2">
 					<ul class="nav">
 						<li class="nav-item">
-							<a class="text-end nav-link">Bonjour ${sessionScope.sessionUtilisateur.pseudo}</a>
+							<a class="nav-link">Bonjour ${sessionScope.sessionUtilisateur.pseudo}</a>
 						</li>
 						<li class="nav-item">
-							<a class="text-end nav-link">Enchères</a>
+							<a class="nav-link">Enchères</a>
 						</li>
 						<li class="nav-item">
-							<a class="text-end nav-link">Vendre un article</a>
+							<a class="nav-link">Vendre un article</a>
 						</li>
 						<li class="nav-item">
-							<a class="text-end nav-link">Mon profil</a>
+							<a class="nav-link" href="ServletProfil">Mon profil</a>
 						</li>
 						<li class="nav-item">
-							<a class="text-end nav-link">Déconnexion</a>
+							<a class="nav-link">Déconnexion</a>
 						</li>
 					</ul>
 				</div>	
