@@ -22,16 +22,16 @@ public class UtilisateurManager {
 	
 	private UtilisateurManager() {};//CONSTRUCTEUR PAR DEFAUT EN PRIVATE POUR PAS INSTANCIER DE L EXTERIEUR
 	
-	public void insert(Utilisateur utilisateur){
-		DAOFactory.getDAOUtilisateur().insert(utilisateur);
+	public void insert(Utilisateur nouveauUtilisateur){
+		DAOFactory.getDAOUtilisateur().insert(nouveauUtilisateur);
 	}
 	
-	public List<Utilisateur> selectById(){
-		return DAOFactory.getDAOUtilisateur().selectById();
-	}
-
 	public boolean verifIdentifiant(String pseudo, String motdePasse) {
 		return DAOFactory.getDAOUtilisateur().verifMotDePasse(pseudo, motdePasse);	
+	}
+
+	public static Utilisateur selectionnerUtilisateur(String pseudo) {
+		return DAOFactory.getDAOUtilisateur().selectByPseudo(pseudo);
 	}
 
 

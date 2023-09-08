@@ -3,6 +3,7 @@ package fr.eni.trocenchere.servlets;
 import java.io.IOException;
 
 import fr.eni.trocenchere.bll.UtilisateurManager;
+import fr.eni.trocenchere.bo.Utilisateur;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -30,9 +31,6 @@ public class ServletConnexion extends HttpServlet {
 		
 		
 		
-		//Création de ma session
-		HttpSession session = request.getSession();
-		
 		
 		// récuprérer les données
 		String pseudoCnx = request.getParameter("identifiant");
@@ -49,6 +47,13 @@ public class ServletConnexion extends HttpServlet {
 		
 		
 		if(connexionValide) {
+			
+			//Création de ma session
+			HttpSession session = request.getSession();
+			Utilisateur sessionUtilisateur = UtilisateurManager.selectionnerUtilisateur(pseudoCnx);
+			session.setAttribute("sessionUtilisateur", sessionUtilisateur);
+
+			
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/accueil.jsp");
 			rd.forward(request, response);
 		}else {

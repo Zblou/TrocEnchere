@@ -11,13 +11,20 @@ import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
 
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
+	private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = ?";
+	private static final String SELECT_BY_PSEUDOS = "SELECT * FROM UTILISATEURS WHERE pseudo = ?";
+	private static final String INSERT_UUTILISATEUR ="INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) "
+			+ "										VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	
+
+	
+	
 	public void insert(Utilisateur utilisateur) {
 		
-		try (Connection cnx = ConnexionProvider.getConnection();){
-			String INSERT = "INSERT INTO UTILISATEURS "
-					+ "(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe) "
-					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			PreparedStatement stmt = cnx.prepareStatement(INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
+		//connexion
+		try (Connection cnx = ConnexionProvider.getConnection()){
+			//requete
+			PreparedStatement stmt = cnx.prepareStatement(INSERT_UUTILISATEUR, PreparedStatement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, utilisateur.getPseudo());
 			stmt.setString(2, utilisateur.getNom());
 			stmt.setString(3, utilisateur.getPrenom());
@@ -27,30 +34,19 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 			stmt.setString(7, utilisateur.getCodePostal());
 			stmt.setString(8, utilisateur.getVille());
 			stmt.setString(9, utilisateur.getMotDePasse());
+			stmt.setInt(10, utilisateur.getCredit());
+			stmt.setBoolean(11, utilisateur.getAdministrateur());
 			stmt.executeUpdate();
+			
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.next()) {
-				
 				utilisateur.setIdUtilisateur(rs.getInt(1));
-
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 
 		}
 
-	}
-
-	
-	
-
-
-	private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = ?";
-
-	@Override
-	public List<Utilisateur> selectById() {
-
-		return null;
 	}
 
 	@Override
@@ -82,6 +78,38 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 		
 		
 		return mdpIdentique;
+	}
+
+	@Override
+	public Utilisateur selectByPseudo(String pseudo) {
+		Utilisateur utilisateur = null;
+		
+		try (Connection cnx = ConnexionProvider.getConnection()){
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_PSEUDOS);
+			pstmt.setString(1, pseudo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			
+					
+			if(rs.next()) {
+				utilisateur = new Utilisateur(
+						rs.getInt("id_utilisateur"),
+						rs.getString("pseudo"),
+						rs.getString("nom"),
+						rs.getString("prenom"),
+						rs.getString("email"),
+						rs.getString("telephone"),
+						rs.getString("rue"),
+						rs.getString("code_postal"),
+						rs.getString("ville"),
+						rs.getInt("credit")
+						);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return utilisateur;
 	}
 
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +13,42 @@
 <header>
 	
 	<div class="row mb-5">
-		<div class="col-4 text-start"><a href="ServletAccueil">ENI-Enchères</a></div>
-		<div class="col-4 offset-4"><p class="text-end"><a href="ServletConnexion">Se connecter</a> - <a href="ServletInscription">S'inscire</a></p></div>
+	<div class="col-4 text-start"><a href="ServletAccueil">ENI-Enchères</a></div>
+		<c:choose>
+			<c:when test="${!empty sessionUtilisateur }">
+				<div class="col-6 offset-2">
+					<ul class="nav">
+						<li class="nav-item">
+							<a class="text-end nav-link">Bonjour ${sessionScope.sessionUtilisateur.pseudo}</a>
+						</li>
+						<li class="nav-item">
+							<a class="text-end nav-link">Enchères</a>
+						</li>
+						<li class="nav-item">
+							<a class="text-end nav-link">Vendre un article</a>
+						</li>
+						<li class="nav-item">
+							<a class="text-end nav-link">Mon profil</a>
+						</li>
+						<li class="nav-item">
+							<a class="text-end nav-link">Déconnexion</a>
+						</li>
+					</ul>
+				</div>	
+			</c:when>
+			<c:otherwise>
+				<div class="col-4 offset-4">
+						<ul class="nav text-end">
+							<li class="nav-item">
+								<a class="nav-link" href="ServletConnexion">Se connecter</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="ServletInscription">S'inscire</a>
+							</li>
+						</ul>
+				</div>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	
 

@@ -40,8 +40,11 @@ public class ServletInscription extends HttpServlet {
 		String ville = request.getParameter("ville");
 		String motDePasse = request.getParameter("motdepasse");
 		
+		//instance du nouvelle utilisateur avec les param du formulaire
 		Utilisateur nouveauUtilisateur = new Utilisateur(pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse);
-
+		
+		
+		//envoie des données a la bll
 		UtilisateurManager.getInstance().insert(nouveauUtilisateur);
 
 		System.out.println(nouveauUtilisateur);

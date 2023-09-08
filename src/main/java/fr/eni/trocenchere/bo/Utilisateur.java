@@ -15,7 +15,7 @@ public class Utilisateur {
 	private String ville;
 	private String motDePasse;
 	private int credit = 100;
-	private Boolean administrateur;
+	private Boolean administrateur = false;
 	private ArrayList<Article> listeVente = new ArrayList<>();
 	private ArrayList<Enchere> listeEnchere = new ArrayList<>();
 	
@@ -37,6 +37,21 @@ public class Utilisateur {
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.motDePasse = motDePasse;
+	}
+	
+	public Utilisateur(int idUtilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue,
+			String codePostal, String ville, int credit) {
+		
+		this.idUtilisateur = idUtilisateur;
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.credit = credit;
 	}
 
 	@Override
