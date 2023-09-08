@@ -34,18 +34,7 @@ public class ServletArticle extends HttpServlet implements Servlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("ArticleName"));
-		System.out.println(request.getParameter("DescriptionArticle"));
-		System.out.println(request.getParameter("ArticleCategorie"));
-		System.out.println(request.getParameter("ArticlePhoto"));
-		System.out.println(request.getParameter("MiseAPrix"));
-		System.out.println(request.getParameter("DebutEnchere"));
-		System.out.println(request.getParameter("FinEnchere"));
-		System.out.println(request.getParameter("RueDepot"));
-		System.out.println(request.getParameter("CodePostalDepot"));
-		System.out.println(request.getParameter("VilleDepot"));
 
-		
 		// FAUT FAIRE VERIF DEPOT CAR PEUT ETRE VIDE
 		
 		String ArticleName = request.getParameter("ArticleName");
@@ -82,7 +71,7 @@ public class ServletArticle extends HttpServlet implements Servlet {
 								user,
 								Categorie.valueOf(ArticleCategorie.toUpperCase()));
 		
-		ArticleManager.getInstance().insertArticle(art);
+		ArticleManager.getInstance().insertArticle(art, RueDepot, CodePostalDepot, VilleDepot);
 	}
 
 }

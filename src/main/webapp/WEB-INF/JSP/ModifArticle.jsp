@@ -14,7 +14,7 @@
 	<br>
 	<div class="row">
 		<div class="col-4"><a href="ServletAccueil">ENI-Enchères</a></div>
-		<div class="col-4"><h3>Modification Vente</h3></div>
+		<div class="col-4"><h3>Modification Vente </h3>N°${requestScope.ObjetAModif.getIdArticle() }</div>
 	</div>
 	<br>
 	<br>
@@ -43,10 +43,10 @@
 			  <div class="col-4 pt-2"><label for="ArticleCategorie" class="form-label">Catégorie</label></div>
 			  <div class="col-8">
 				    <select class="form-select" name="ArticleCategorie" id="ArticleCategorie" required>
-				      <option value="Informatique">Informatique</option>
-				      <option value="Ameublement">Ameublement</option>
-				      <option value="Vetement">Vêtement</option>
-				      <option value="SportLoisirs">Sports & Loisirs</option>
+				      <option value="INFORMATIQUE">Informatique</option>
+				      <option value="AMEUBLEMENT">Ameublement</option>
+				      <option value="VETEMENTS">Vêtement</option>
+				      <option value="SPORTSLOISIRS">Sports & Loisirs</option>
 				    </select>
 			  </div>
 			  </div>
@@ -60,19 +60,19 @@
 			  <br>
 			  <div class="row">
 			  		<div class="col-4 pt-2"><label class="form-label" for="MiseAPrix">Mise à Prix</label></div>
-				    <div class="col-8"><input min="10" max="20" type="number" name="MiseAPrix" id="MiseAPrix" class="form-control" value="${requestScope.ObjetAModif.getMiseAPrix() }"  /></div>
+				    <div class="col-8"><input min="100" type="number" name="MiseAPrix" id="MiseAPrix" class="form-control" value="${requestScope.ObjetAModif.getMiseAPrix() }"  /></div>
 			  </div>
 			  <br>
 			  <br>
 			  <div class="row">
 			    <div class="col-4 pt-2"><label for="DebutEnchere" class="form-label">Date début enchère</label></div>
-			    <div class="col-8"><input type="date" class="form-control" name="DebutEnchere" id="DebutEnchere" value="${Date.valueOf(requestScope.ObjetAModif.getDateDebutEncheres()) }" required></div>
+			    <div class="col-8"><input type="date" class="form-control" name="DebutEnchere" id="DebutEnchere" value="${requestScope.ObjetAModif.getDateDebutEncheres() }" required></div>
 			  </div>
 			  <br>
 			  <br>
 			  <div class="row">
 			    <div class="col-4 pt-2"><label for="FinEnchere" class="form-label">Date fin enchère</label></div>
-			    <div class="col-8"><input type="date" class="form-control" name="FinEnchere" id="FinEnchere" value="${Date.valueOf(requestScope.ObjetAModif.getDateFinEncheres()) }"required></div>
+			    <div class="col-8"><input type="date" class="form-control" name="FinEnchere" id="FinEnchere" value="${requestScope.ObjetAModif.getDateFinEncheres() }"required></div>
 			  </div>
 			  <br>
 			  <br>
@@ -99,18 +99,29 @@
 			  <div class="row justify-content-center">
 			  	<div class="col-4">
 			  	<br>
-			    	<button class="btn btn-primary" type="submit">Enregistrer</button>
+			    	<button class="btn btn-success" type="submit">Enregistrer</button>
 			    </div>
 			    <div class="col-4">
 			    <br>
 			    	<a class="btn btn-primary" href="ServletAccueil">Retour</a>
 			    </div>
-			    <div class="col-4">
-			    <br>
-			    	<a class="btn btn-primary" href="ServletAnnulerVente">Annuler Vente</a>
-			    </div>
+			  </div>
+			  
+			  <div>
+			  	<input type="text" name="idObjetModif" value="${requestScope.ObjetAModif.getIdArticle() }" hidden="true">
 			  </div>
 			</form>
+			
+			<form method="POST" action="ServletAnnulerVente">
+				<div class="col-4 offset-4">
+			    <br>
+			    	<button class="btn btn-danger" type="submit">Supprimer Vente</button>
+			    </div>
+			     <div>
+			  	<input type="text" name="idObjetDelete" value="${requestScope.ObjetAModif.getIdArticle() }" hidden="true">
+			  </div>
+			</form>
+			
 		</div>
 	
 	</div>

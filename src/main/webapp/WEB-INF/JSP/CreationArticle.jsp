@@ -42,10 +42,10 @@
 			  <div class="col-4 pt-2"><label for="ArticleCategorie" class="form-label">Catégorie</label></div>
 			  <div class="col-8">
 				    <select class="form-select" name="ArticleCategorie" id="ArticleCategorie" required>
-				      <option value="Informatique">Informatique</option>
-				      <option value="Ameublement">Ameublement</option>
-				      <option value="Vetement">Vêtement</option>
-				      <option value="SportLoisirs">Sports & Loisirs</option>
+				      <option value="INFORMATIQUE">Informatique</option>
+				      <option value="AMEUBLEMENT">Ameublement</option>
+				      <option value="VETEMENTS">Vêtement</option>
+				      <option value="SPORTSLOISIRS">Sports & Loisirs</option>
 				    </select>
 			  </div>
 			  </div>
@@ -59,7 +59,7 @@
 			  <br>
 			  <div class="row">
 			  		<div class="col-4 pt-2"><label class="form-label" for="MiseAPrix">Mise à Prix</label></div>
-				    <div class="col-8"><input min="10" max="20" type="number" name="MiseAPrix" id="MiseAPrix" class="form-control" /></div>
+				    <div class="col-8"><input min="100" type="number" name="MiseAPrix" id="MiseAPrix" class="form-control" /></div>
 			  </div>
 			  <br>
 			  <br>

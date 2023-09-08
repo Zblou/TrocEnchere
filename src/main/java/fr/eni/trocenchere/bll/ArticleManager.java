@@ -19,9 +19,9 @@ public class ArticleManager {
 	
 	
 	
-	public void insertArticle(Article article) {
+	public void insertArticle(Article article, String RueDepot, String CodePostalDepot, String VilleDepot) {
 		try {
-			DAOFactory.getDAOArticleJDBCIpml().insertArticle(article);
+			DAOFactory.getDAOArticleJDBCIpml().insertArticle(article, RueDepot, CodePostalDepot, VilleDepot);
 		} catch (DALException e) {
 			System.out.println("IMPOSSIBLE D'INSERER ARTICLE");
 			e.printStackTrace();
@@ -36,7 +36,12 @@ public class ArticleManager {
 	}
 
 	public void deleteArticle(int idArticleDelete) {
-		// TODO Auto-generated method stub
-		
+		DAOFactory.getDAOArticleJDBCIpml().deleteArticle(idArticleDelete);
+	}
+
+	public void modifArticleById(String idArticleModif, String articleName, String descriptionArticle, String ArticleCategorie, String miseAPrix,
+			String debutEnchere, String finEnchere, String rueDepot, String codePostalDepot, String villeDepot) {
+		DAOFactory.getDAOArticleJDBCIpml().modifArticleById(idArticleModif, articleName,
+				descriptionArticle, ArticleCategorie, miseAPrix, debutEnchere, finEnchere, rueDepot, codePostalDepot, villeDepot);
 	}
 }
