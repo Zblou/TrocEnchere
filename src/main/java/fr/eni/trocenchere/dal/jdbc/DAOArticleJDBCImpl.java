@@ -156,7 +156,7 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 				int idCategorie = rs.getInt("id_categorie");
 				
 				// UTILISATEUR ET CATEGORIE ID A TRANSFORMER EN OBJETS
-				
+	/*	
 				listeArticle.add(new Article(rs.getInt("id_article"),
 											rs.getString("nom_article"),
 											rs.getString("description"),
@@ -168,9 +168,9 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 											rs.getInt("id_categorie")
 											));
 
+			
+			*/
 			}
-			
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("ERREUR SELECT ALL ARTICLE");

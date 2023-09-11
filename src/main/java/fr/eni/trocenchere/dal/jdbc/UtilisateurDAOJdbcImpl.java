@@ -14,7 +14,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 	private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = ?";
 	private static final String SELECT_BY_PSEUDOS = "SELECT * FROM UTILISATEURS WHERE pseudo = ?";
 	private static final String INSERT_UUTILISATEUR ="INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) "
-			+ "										VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			+ "										VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	
 
 	
