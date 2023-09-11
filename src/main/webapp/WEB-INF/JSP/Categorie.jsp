@@ -16,12 +16,14 @@
 <title>Category</title>
 </head>
 <body>
-
+		
 	<form method="POST" action="ServletCategorie">
-
-		<img alt="Art et Decoration" src="Telecharement/ArtEtFenetre.jpg" width="150px" height="150px">
+		
+		<h1>Category</h1>
+		
+		<img alt="Art et Decoration" src="Images/ArtEtFenetre.jpg" width="210px" height="200px">
 		<label for="ArtEtFenetre"></label>
-		<input type="text">
+
 		<br>
 		
 		 <input type="button" value="Valider">
