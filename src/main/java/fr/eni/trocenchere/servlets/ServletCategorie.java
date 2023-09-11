@@ -26,8 +26,13 @@ public class ServletCategorie extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//récup des valeurs du formulaire
+		String nouvelleCategorie = request.getParameter("nouvelleCategorie");
 		
-		//CategorieManeger.getInstance().insert(nouvelleCategorie);
+		
+		
+		//envoy des des donne a la bll
+		CategorieManeger.getInstance().insert(nouvelleCategorie);
 		
 		
 		doGet(request, response);

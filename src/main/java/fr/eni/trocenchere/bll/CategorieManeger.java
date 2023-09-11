@@ -1,6 +1,6 @@
 package fr.eni.trocenchere.bll;
 
-import fr.eni.trocenchere.bo.Categorie;
+
 import fr.eni.trocenchere.bo.Categoriedavid;
 import fr.eni.trocenchere.dal.DAO.DAOFactory;
 
@@ -17,11 +17,14 @@ public class CategorieManeger {
 	
 	
 }
-
-//FIN SINGETON
-
-
-	public void insert (Categoriedavid categorie) {
-		DAOFactory.getDAOCategorieJDBCImpl().insert(categorie);
+	//FIN SINGETON
+	
+	
+	public void insert(String nouvelleCategorie) {
+		// TODO Auto-generated method stub
+		
 	}
+
+
+
 }
