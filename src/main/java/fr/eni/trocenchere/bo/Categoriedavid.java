@@ -2,28 +2,28 @@ package fr.eni.trocenchere.bo;
 
 public class Categoriedavid {
 
-	private String ArtEtFenetre;
+	private String nom;
 
-	public String getArtEtFenetre() {
-		return ArtEtFenetre;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setArtEtFenetre(String artEtFenetre) {
-		ArtEtFenetre = artEtFenetre;
+	public void setArtEtFenetre(String nom) {
+	this.nom = nom;
 	}
 
 	public Categoriedavid() {
-		super();
+		
 	}
 
-	public Categoriedavid(String artEtFenetre) {
-		super();
-		ArtEtFenetre = artEtFenetre;
+	public Categoriedavid(String nom) {
+		
+	this.nom = nom;
 	}
 
 	@Override
 	public String toString() {
-		return "Categoriedavid [ArtEtFenetre=" + ArtEtFenetre + "]";
+		return "Categoriedavid [nom=" + nom + "]";
 	}
 
 

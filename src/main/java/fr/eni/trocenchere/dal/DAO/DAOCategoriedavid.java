@@ -4,6 +4,6 @@ import fr.eni.trocenchere.bo.Categoriedavid;
 
 public interface DAOCategoriedavid {
 
-	void insert(Categoriedavid categorie);
+	void insert(Categoriedavid nouvelleCategorie);
 	
 }

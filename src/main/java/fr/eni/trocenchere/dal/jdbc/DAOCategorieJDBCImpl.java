@@ -20,18 +20,15 @@ public class DAOCategorieJDBCImpl implements DAOCategoriedavid {
 		try (Connection cnx = ConnexionProvider.getConnection()){
 			//requete
 			PreparedStatement stmt = cnx.prepareStatement(INSERT_CATEGORIE,PreparedStatement.RETURN_GENERATED_KEYS);
-			stmt.setString(1, categorie.getArtEtFenetre());
+			stmt.setString(1, categorie.getNom());
 			stmt.executeUpdate();
-			
-			ResultSet rs = stmt.getGeneratedKeys();
-			if (rs.next() ) {
-				categorie.setArtEtFenetre(rs.getString(1));
-			}
+	
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 	}
+
 
 }

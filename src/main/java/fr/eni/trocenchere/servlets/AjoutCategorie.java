@@ -3,6 +3,7 @@ package fr.eni.trocenchere.servlets;
 import java.io.IOException;
 
 import fr.eni.trocenchere.bll.CategorieManeger;
+import fr.eni.trocenchere.bo.Categoriedavid;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -23,12 +24,12 @@ public class AjoutCategorie extends HttpServlet {
 			throws ServletException, IOException {
 		
 		//récup des valeurs du formulaire
-		String nouvelleCategorie = request.getParameter("nouvelleCategorie");
+	String nouvelleCategorie = request.getParameter("nouvelleCategorie");
 		
-		
+	Categoriedavid categorie = new Categoriedavid(nouvelleCategorie);
 		
 		//envoy des des donne a la bll
-		CategorieManeger.getInstance().insert(nouvelleCategorie);
+		CategorieManeger.getInstance().insert(categorie);
 
 	}
 

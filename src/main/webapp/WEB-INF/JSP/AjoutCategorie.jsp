@@ -19,7 +19,7 @@
 
 	<h1>Ajouter une Category</h1>
 	<br>
-	<form method="POST" action="ServletAjoutCategorie">
+	<form method="POST" action="AjoutCategorie">
 	<label for="Nom">Veuillez saisir le nom de la catégorie : </label>
 	<input type="text" id="Nom" name="Nom" required/>
 	<br>

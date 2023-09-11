@@ -15,10 +15,10 @@ public class DAOFactory {
     public static DAOArticle getDAOArticleJDBCIpml() {
     	return new DAOArticleJDBCImpl();
     }
-    
    
     public static DAOCategoriedavid getDAOCategorieJDBCImpl() {
     	return new DAOCategorieJDBCImpl();
     }
+
     
 }
