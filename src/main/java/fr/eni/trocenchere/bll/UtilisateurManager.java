@@ -1,7 +1,5 @@
 package fr.eni.trocenchere.bll;
 
-import java.util.List;
-
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DAO.DAOFactory;
 

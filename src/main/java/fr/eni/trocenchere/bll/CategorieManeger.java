@@ -1,7 +1,6 @@
 package fr.eni.trocenchere.bll;
 
 
-import fr.eni.trocenchere.bo.Categorie;
 import fr.eni.trocenchere.bo.Categoriedavid;
 import fr.eni.trocenchere.dal.DAO.DAOFactory;
 
