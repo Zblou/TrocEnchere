@@ -21,6 +21,18 @@ public class Article {
 	public Article() {
 	}
 
+	// FAIRE CONSTRUCTEUR SANS USER
+	public Article(int idArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
+			int miseAPrix, int prixVente, Categorie catArticle) {
+		this.idArticle = idArticle;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
+		this.catArticle = catArticle;
+	}
 
 	public Article(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
 			int miseAPrix, Utilisateur possesseurArticle, Categorie catArticle) {

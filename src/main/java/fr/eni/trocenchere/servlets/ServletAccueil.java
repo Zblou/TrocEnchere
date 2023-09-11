@@ -18,7 +18,7 @@ public class ServletAccueil extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArticleManager.getInstance().selectAllArticles();
+		request.setAttribute("ListeArticle", ArticleManager.getInstance().selectAllArticles());
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/accueil.jsp");
 		rd.forward(request, response);
