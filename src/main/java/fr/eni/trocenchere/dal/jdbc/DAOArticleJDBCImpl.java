@@ -200,7 +200,6 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 											));
 			}
 			
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("ERREUR SELECT ALL ARTICLE");

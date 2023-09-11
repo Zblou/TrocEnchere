@@ -17,4 +17,14 @@
     <servlet-name>ServletCategorie</servlet-name>
     <url-pattern>/ServletCategorie</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjoutCategorie</display-name>
+    <servlet-name>AjoutCategorie</servlet-name>
+    <servlet-class>fr.eni.trocenchere.servlets.AjoutCategorie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjoutCategorie</servlet-name>
+    <url-pattern>/AjoutCategorie</url-pattern>
+  </servlet-mapping>
 </web-app>
