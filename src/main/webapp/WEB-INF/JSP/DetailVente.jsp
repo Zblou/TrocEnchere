@@ -30,13 +30,10 @@
 			    <div class="col-4 text-start">${requestScope.ArticleVendu.getNomArticle() }</div>
 			  </div>
 			  <br>
-			  <br>
 			  <div class="row input-group">
 				  <div class="col-4 text-end"><label class="form-label">Description :</label></div>
 				  <div class="col-4 text-start">${requestScope.ArticleVendu.getDescription() }</div>
 			  </div>
-			  <br>
-			  <br>
 			  <br>
 			  <div class="row">
 			  <div class="col-4 text-end"><label for="ArticleCategorie" class="form-label">Catégorie :</label></div>
@@ -45,23 +42,15 @@
 			  </div>
 			  </div>
 			  <br>
-			  <br>
-			  <div class="row">
-			    <div class="col-4 text-end"><label for="ArticlePhoto" class="form-label">Photo :</label></div>
-			  </div>
-			  <br>
-			  <br>
 			  <div class="row">
 			    <div class="col-4 text-end"><label for="Prixvente" class="form-label">Meilleur offre :</label></div>
 			    <div class="col-4 text-start" id="Prixvente">${requestScope.ArticleVendu.getPrixVente() }</div>
 			  </div>
 			  <br>
-			  <br>
 			  <div class="row">
 			    <div class="col-4 text-end"><label for="MiseAPrix" class="form-label">Mise à prix :</label></div>
 			    <div class="col-4 text-start" id="MiseAPrix">${requestScope.ArticleVendu.getMiseAPrix() }</div>
 			  </div>
-			  <br>
 			  <br>
 			  <div class="row">
 			    <div class="col-4 text-end"><label for="FinEnchere" class="form-label">Date fin enchère :</label></div>
@@ -69,23 +58,22 @@
 			  </div>
 			  <br>
 			  <br>
-			  <br>
 			  <div>
 			  </div>
 			  <div class="col-10 offset-1">
 			  	<fieldset class="border">
-			  		<legend>Dépôt</legend>
+			  		<legend>RETRAIT</legend>
 					  <div class="row">
-					    <div class="col-4 pt-2"><label for="RueDepot" class="form-label">Rue</label></div>
-					    <div class="col-8"><input type="text" class="form-control" name="RueDepot" id="RueDepot" required></div>
+					    <div class="col-4 text-end"><label for="RueDepot" class="form-label">Rue</label></div>
+					    <div class="col-4 text-start">${requestScope.ArticleVendu.getPossesseurArticle().getRue() }</div>
 					  </div>
 					  <div class="row">
-					    <div class="col-4 pt-2"><label for="CodePostalDepot" class="form-label">Code Postal</label></div>
-					    <div class="col-8"><input type="text" class="form-control" name="CodePostalDepot" id="CodePostalDepot" required></div>
+					    <div class="col-4 text-end"><label for="CodePostalDepot" class="form-label">Code Postal</label></div>
+					    <div class="col-4 text-start">${requestScope.ArticleVendu.getPossesseurArticle().getCodePostal() }</div>
 					  </div>
 					  <div class="row">
-					    <div class="col-4 pt-2"><label for="VilleDepot" class="form-label">Ville</label></div>
-					    <div class="col-8"><input type="text" class="form-control" name="VilleDepot" id="VilleDepot" required></div>
+					    <div class="col-4 text-end"><label for="VilleDepot" class="form-label">Ville</label></div>
+					    <div class="col-4 text-start">${requestScope.ArticleVendu.getPossesseurArticle().getVille() }</div>
 					  </div>
 			  	</fieldset>
 			  </div>
@@ -96,7 +84,6 @@
 			    	<a class="btn btn-primary" href="ServletAccueil">Retour</a>
 			    </div>
 			  </div>
-			  
 		</div>
 	
 	</div>
