@@ -40,7 +40,7 @@ public class Utilisateur {
 	}
 	
 	public Utilisateur(int idUtilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue,
-			String codePostal, String ville, int credit) {
+			String codePostal, String ville, int credit, String motDePasse) {
 		
 		this.idUtilisateur = idUtilisateur;
 		this.pseudo = pseudo;
@@ -52,6 +52,7 @@ public class Utilisateur {
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.credit = credit;
+		this.motDePasse = motDePasse;
 	}
 
 	@Override

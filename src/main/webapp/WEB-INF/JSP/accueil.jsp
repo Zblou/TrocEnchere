@@ -31,7 +31,7 @@
 							<a class="nav-link" href="ServletProfil">Mon profil</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link">Déconnexion</a>
+							<a class="nav-link" href="ServletDeconnexion">Déconnexion</a>
 						</li>
 					</ul>
 				</div>	

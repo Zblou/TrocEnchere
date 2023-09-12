@@ -33,7 +33,7 @@
 		<p>Rue : ${sessionScope.sessionUtilisateur.rue}</p>
 		<p>Code postal : ${sessionScope.sessionUtilisateur.codePostal}</p>
 		<p>Ville : ${sessionScope.sessionUtilisateur.ville}</p>
-		<a href="">Modifier</a>
+		<a href="ServletModifutilisateur">Modifier</a>
 	</div>
 
 </body>

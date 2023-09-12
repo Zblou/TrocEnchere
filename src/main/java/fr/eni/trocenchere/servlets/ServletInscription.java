@@ -40,7 +40,7 @@ public class ServletInscription extends HttpServlet {
 		String ville = request.getParameter("ville");
 		String motDePasse = request.getParameter("motdepasse");
 		
-		//instance du nouvelle utilisateur avec les param du formulaire
+		
 		Utilisateur nouveauUtilisateur = new Utilisateur(pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse);
 		
 		
@@ -49,7 +49,8 @@ public class ServletInscription extends HttpServlet {
 
 		System.out.println(nouveauUtilisateur);
 		
-		doGet(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("ServletAccueil");
+		rd.forward(request, response);
 	}
 
 }
