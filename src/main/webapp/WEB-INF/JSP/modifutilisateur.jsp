@@ -27,7 +27,7 @@
  <div>
  
  	<c:if test="${!empty confirmationMdpInvalide }">
-		<p style="color: red">${LecteurMessage.getMessagesErreur(confirmationMdpInvalide) }</p>
+		<p style="color: red">${confirmationMdpInvalide} </p>
 	</c:if>
 
 	

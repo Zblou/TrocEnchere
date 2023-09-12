@@ -12,6 +12,7 @@ import java.io.IOException;
 
 import fr.eni.trocenchere.bll.UtilisateurManager;
 import fr.eni.trocenchere.bo.Utilisateur;
+import fr.eni.trocenchere.messages.LecteurMessage;
 
 @WebServlet("/ServletModifutilisateur")
 public class ServletModifutilisateur extends HttpServlet {
@@ -42,7 +43,7 @@ public class ServletModifutilisateur extends HttpServlet {
 		
 		if(motdepasse != confirmationMdp) {
 			
-			request.setAttribute("confirmationMdpInvalide", CodesErreurServlet.ERREUR_CONFIRMATION_MDP);
+			request.setAttribute("confirmationMdpInvalide", LecteurMessage.getMessagesErreur(CodesErreurServlet.ERREUR_CONFIRMATION_MDP));
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/modifutilisateur.jsp");
 			rd.forward(request, response);
 			
