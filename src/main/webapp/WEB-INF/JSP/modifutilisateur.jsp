@@ -25,8 +25,13 @@
 	</header>
 	<h1>Profil</h1>
  <div>
-	<form method="POST" action="ServletInscription">
-                     
+	<form method="POST" action="ServletModifutilisateur">
+             
+             
+             <div>
+             	<input type="text" name="id_utilisateur" id="id_utilisateur" value="${sessionScope.sessionUtilisateur.idUtilisateur }">
+             </div> 
+                    
             <label for="pseudo">Pseudo : </label>
             <input type="text" id="pseudo" name="pseudo" value="${sessionScope.sessionUtilisateur.pseudo}" required>
             

@@ -14,7 +14,8 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 	private static final String SELECT_BY_PSEUDOS = "SELECT * FROM UTILISATEURS WHERE pseudo = ?;";
 	private static final String INSERT_UTILISATEUR ="INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) "
 			+ "										VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-	private static final String UPDATE_UTILISATEUR = "";
+	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo =?, nom=?, prenom=?, email=?, telephone=?, rue=?,"
+			+ "										code_postal=?, ville=?, mot_de_passe=? WHERE id_utilisateur =?;";
 
 	
 	
@@ -113,10 +114,30 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 	}
 
 	@Override
-	public Utilisateur modifUtilisateur(String pseudo, String nom, String prenom, String email, String telephone,
+	public void modifUtilisateur(String IdUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
 			String rue, String codePostal, String ville, String motdepasse) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		try (Connection cnx = ConnexionProvider.getConnection()){
+			
+			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_UTILISATEUR);
+			
+			pstmt.setString(1, pseudo);
+			pstmt.setString(2, nom);
+			pstmt.setString(3, prenom);
+			pstmt.setString(4, email);
+			pstmt.setString(5, telephone);
+			pstmt.setString(6, rue);
+			pstmt.setString(7, codePostal);
+			pstmt.setString(8, ville);
+			pstmt.setString(9, motdepasse);
+			pstmt.setInt(10, Integer.valueOf(IdUtilisateur));
+			
+			pstmt.executeUpdate();
+			
+			System.out.println("Modif user ok");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 
