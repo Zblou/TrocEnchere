@@ -1,5 +1,7 @@
 package fr.eni.trocenchere.dal.DAO;
 
+import java.util.ArrayList;
+
 import fr.eni.trocenchere.bo.Article;
 import fr.eni.trocenchere.dal.DALException;
 
@@ -15,5 +17,7 @@ public interface DAOArticle {
 			String debutEnchere, String finEnchere, String rueDepot, String codePostalDepot, String villeDepot);
 
 	void deleteArticle(int idArticleDelete);
+
+	ArrayList<Article> selectAllArticles();
 
 }

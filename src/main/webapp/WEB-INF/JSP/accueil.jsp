@@ -10,8 +10,8 @@
 <title>Accueil</title>
 </head>
 <body class="container text-center">
+
 <header>
-	
 	<div class="row mb-5">
 	<div class="col-4 text-start"><a href="ServletAccueil">ENI-Enchères</a></div>
 		<c:choose>
@@ -50,40 +50,63 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-	
-
 </header>
-	<div class="row p-4">
+
+	<div class="row">
 		<h3>Liste des enchères</h3>
-		
+		<br>
+		<br>		
 		<h5 class="text-start">Filtres</h5>
+		<br>
 		<form>
-			<div class="row">
-				<div class="col-2">
-					<input type="text" name="rechercheFiltre" id="rechercheFiltre">
+			<div class="row text-align-center">
+				<div class="input-group">
+				  <span class="input-group-text" id="searchIcon">🔍</span>
+				  <input type="text" class="form-control" placeholder="Recherche" aria-describedby="searchIcon">
+				  
+					<span class="input-group-text" id="searchIcon">Catégorie</span>
+					<select class="form-select" id="categorie" name="categorie">
+						<option selected>Toutes</option>
+						<option value="informatique">Informatique</option>
+						<option value="ameublement">Ameublement</option>
+						<option value="vetement">Vêtement</option>
+						<option value="sportLoisirs">Sport&Loisirs</option>
+					</select>			
 				</div>
-				<div class="col-2">
 				<br>
-					<label for="categorie" class="text-start">Catégorie :</label>
-					<select class="form-select" id="categorie">
-				<option selected>Toutes</option>
-				<option value="informatique">Informatique</option>
-				<option value="ameublement">Ameublement</option>
-				<option value="vetement">Vêtement</option>
-				<option value="sportLoisirs">Sport&Loisirs</option>
-			</select>
-				</div>
-			
-			
-			<input type="submit" value="Rechercher">
+				<br>
+				<div></div>
+				<br>
+			<div class="col-12"><input class="btn btn-primary" type="submit" value="Rechercher"></div>
 			</div>
 		</form>
 	</div>
 
+	<br>
+	<br>
+	<br>
 	
+	<div class="row row-cols-1 row-cols-4 g-4">
 	
-	
+		<c:forEach items="${ListeArticle }" var="Article">
 		
+		  <div class="col">
+		    <div class="card h-100">
+		      <img src="https://cdn.pixabay.com/photo/2014/04/03/10/45/hammer-311343_1280.png" class="card-img-top" alt="ENCHERE">
+		      <div class="card-body">
+		        <h4 class="card-title">${Article.getNomArticle() }</h4>
+		        <br>
+				<p>Prix : ${Article.getPrixVente() }</p>
+				<p>Date de fin d'enchère : ${Article.getDateFinEncheres() }</p>
+				<p>Vendeur : ${Article.getPossesseurArticle().getPseudo() }</p>
+		      </div>
+		    </div>
+		  </div>
+		  
+		</c:forEach>
+
+	</div>
+
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>	

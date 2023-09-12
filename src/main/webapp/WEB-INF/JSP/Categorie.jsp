@@ -16,15 +16,24 @@
 <title>Category</title>
 </head>
 <body>
+		
+	<form method="POST" action="ServletCategorie">
+		
+		<h1>Category</h1>
+		
+		<img alt="Art et Decoration" src="Images/art.jpg" width="210px" height="200px">
+		<label for="ArtEtFenetre"><h3>Art</h3></label>
 
-	<form methode="POST" action="">
-
-		<img alt="Art et Decoration" src="Telecharement/ArtEtFenetre.jpg" width="150px" height="150px">
-		<label for="ArtEtFenetre">Art et Décoration : </label>
-		<input type="text" id="ArtEtFenetre" name="ArtEtFenetre" required><br>
 		<br>
 		
-		 <input type="button" value="Valider">
+	
+	
+	<div class="row">
+	<div class="col-4">
+		<a href="AjoutCategorie">Ajouter-Une-Categorie</a>
+	</div>
+</div>
+<br>
 		 
 	</form>
 

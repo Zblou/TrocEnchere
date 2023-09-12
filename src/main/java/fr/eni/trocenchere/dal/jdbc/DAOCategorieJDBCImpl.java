@@ -1,7 +1,32 @@
 package fr.eni.trocenchere.dal.jdbc;
 
-import fr.eni.trocenchere.dal.DAO.DAOCategorie;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-public class DAOCategorieJDBCImpl implements DAOCategorie {
+import fr.eni.trocenchere.bo.Categoriedavid;
+import fr.eni.trocenchere.dal.DAO.DAOCategoriedavid;
+
+public class DAOCategorieJDBCImpl implements DAOCategoriedavid {
+
+	private static final String INSERT_CATEGORIE = "INSERT INTO CATEGORIE (ArtEtFenetre)"
+												+ "VALUES (?)";
+	
+	public void insert(Categoriedavid categorie) {
+		
+		//connexion
+		
+		try (Connection cnx = ConnexionProvider.getConnection()){
+			//requete
+			PreparedStatement stmt = cnx.prepareStatement(INSERT_CATEGORIE,PreparedStatement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, categorie.getNom());
+			stmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 
 }

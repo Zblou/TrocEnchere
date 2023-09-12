@@ -1,5 +1,7 @@
 package fr.eni.trocenchere.bll;
 
+import java.util.ArrayList;
+
 import fr.eni.trocenchere.bo.Article;
 import fr.eni.trocenchere.dal.DALException;
 import fr.eni.trocenchere.dal.DAO.DAOFactory;
@@ -43,5 +45,9 @@ public class ArticleManager {
 			String debutEnchere, String finEnchere, String rueDepot, String codePostalDepot, String villeDepot) {
 		DAOFactory.getDAOArticleJDBCIpml().modifArticleById(idArticleModif, articleName,
 				descriptionArticle, ArticleCategorie, miseAPrix, debutEnchere, finEnchere, rueDepot, codePostalDepot, villeDepot);
+	}
+
+	public ArrayList<Article> selectAllArticles() {
+		return DAOFactory.getDAOArticleJDBCIpml().selectAllArticles();
 	}
 }

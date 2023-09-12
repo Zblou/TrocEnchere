@@ -10,6 +10,7 @@ public enum Categorie {
 	SPORTSLOISIRS(4);
 	
 	private int idCategorie;
+	// libelle sert probablement à rien
 	private String libelle;
 	private ArrayList<Article> listeArticle = new ArrayList<>();
 	
@@ -37,6 +38,8 @@ public enum Categorie {
 	public void ajouterArticle(Article article) {
 		this.listeArticle.add(article);
 	}
+	
+	
 	
 	
 }

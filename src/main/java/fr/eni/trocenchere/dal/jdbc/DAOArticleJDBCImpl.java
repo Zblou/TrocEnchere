@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import fr.eni.trocenchere.bo.Article;
 import fr.eni.trocenchere.bo.Categorie;
+import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DALException;
 import fr.eni.trocenchere.dal.DAO.DAOArticle;
 
@@ -27,11 +30,18 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 	
 	private static final String SUPPRESSION_ARTICLE = "DELETE FROM ARTICLES WHERE id_article=?;";
 	
+	private static final String SELECT_ALL_ARTICLES = "SELECT A.id_article, A.nom_article, A.description, A.date_debut_encheres, A.date_fin_encheres, "
+			+ "		A.prix_initial, A.prix_vente, A.id_categorie, U.id_utilisateur, U.pseudo, U.nom, U.prenom, U.email, "
+			+ "		U.telephone, U.rue, U.code_postal, U.ville, U.credit "
+			+ "FROM ARTICLES A, UTILISATEURS U "
+			+ "WHERE A.id_utilisateur = U.id_utilisateur "
+			+ "ORDER BY U.id_utilisateur ASC;";
+	
 	// UTILE SEULEMENT SI ON NE FAIT PAS LE ON DELETE CASCADE DANS LA BDD
 	// private static final String SUPPRESSION_RETRAIT = "DELETE FROM RETRAITS WHERE id_article=?;";
 	
 	@Override
-	public void insertArticle(Article article,  String RueDepot, String CodePostalDepot, String VilleDepot) throws DALException{
+	public void insertArticle(Article article, String RueDepot, String CodePostalDepot, String VilleDepot) throws DALException{
 		
 		try(Connection cnx = ConnexionProvider.getConnection()){
 			
@@ -126,6 +136,76 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}		
+	}
+
+	@Override
+	public ArrayList<Article> selectAllArticles() {
+		
+		ArrayList<Article> listeArticle = new ArrayList<>();
+		ArrayList<Utilisateur> listeUsers = new ArrayList<>();
+		
+		try(Connection cnx = ConnexionProvider.getConnection()){
+			
+			Statement s = cnx.createStatement();
+			ResultSet rs = s.executeQuery(SELECT_ALL_ARTICLES);
+			int possesseurArticlePrecedent = -1;
+			
+			while(rs.next()) {
+				// UTILISATEUR ET CATEGORIE ID A TRANSFORMER EN OBJETS
+				
+				// ON PARCOURS LA LISTE DES CATEGORIES POUR TROUVER LA CATEGORIE CORRESPONDANT A L'ID
+				// VALEUR PAR DEFAULT SINON PAS CONTENT
+				Categorie catArticle = Categorie.INFORMATIQUE;
+				
+				for(Categorie c : Categorie.values()) {
+					if(c.getIdCategorie() == rs.getInt("id_categorie")) {
+						catArticle = c;
+					}
+				}
+				
+				if(possesseurArticlePrecedent != rs.getInt("id_utilisateur")) {
+					listeUsers.add(new Utilisateur(rs.getInt("id_utilisateur"),
+															rs.getString("pseudo"),
+															rs.getString("nom"),
+															rs.getString("prenom"),
+															rs.getString("email"),
+															rs.getString("telephone"),
+															rs.getString("rue"),
+															rs.getString("code_postal"),
+															rs.getString("ville"),
+															rs.getInt("credit")));
+					possesseurArticlePrecedent = rs.getInt("id_utilisateur");
+				}
+				
+				listeArticle.add(new Article(rs.getInt("id_article"),
+											rs.getString("nom_article"),
+											rs.getString("description"),
+											rs.getDate("date_debut_encheres").toLocalDate(),
+											rs.getDate("date_fin_encheres").toLocalDate(),
+											rs.getInt("prix_initial"),
+											rs.getInt("prix_vente"),
+											listeUsers.get(listeUsers.size()-1),
+											catArticle
+											));
+				
+				// ON AJOUTE AUSSI LA VENTE A l'UTILISATEUR, AVEC LE CONSTRUCTEUR SANS POSSESSEUR CAR REDONDANT SINON
+				listeUsers.get(listeUsers.size()-1).ajouterVente(new Article(rs.getInt("id_article"),
+											rs.getString("nom_article"),
+											rs.getString("description"),
+											rs.getDate("date_debut_encheres").toLocalDate(),
+											rs.getDate("date_fin_encheres").toLocalDate(),
+											rs.getInt("prix_initial"),
+											rs.getInt("prix_vente"),
+											catArticle
+											));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("ERREUR SELECT ALL ARTICLE");
+		}
+		
+		return listeArticle;
 	}
 
 }
