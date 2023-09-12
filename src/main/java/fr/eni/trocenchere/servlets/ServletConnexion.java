@@ -50,7 +50,7 @@ public class ServletConnexion extends HttpServlet {
 			
 			//Création de ma session
 			HttpSession session = request.getSession();
-			Utilisateur sessionUtilisateur = UtilisateurManager.selectionnerUtilisateur(pseudoCnx);
+			Utilisateur sessionUtilisateur = UtilisateurManager.getInstance().selectionnerUtilisateur(pseudoCnx);
 			session.setAttribute("sessionUtilisateur", sessionUtilisateur);
 
 			
