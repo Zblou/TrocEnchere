@@ -28,7 +28,7 @@ public class UtilisateurManager {
 		return DAOFactory.getDAOUtilisateur().verifMotDePasse(pseudo, motdePasse);	
 	}
 
-	public static Utilisateur selectionnerUtilisateur(String pseudo) {
+	public Utilisateur selectionnerUtilisateur(String pseudo) {
 		return DAOFactory.getDAOUtilisateur().selectByPseudo(pseudo);
 	}
 
