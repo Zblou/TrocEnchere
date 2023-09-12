@@ -16,6 +16,8 @@ public interface DAOUtilisateur {
 
 	void modifUtilisateur(String id_utilisateur,String pseudo, String nom, String prenom, String email, String telephone, String rue,
 			String codePostal, String ville, String motdepasse);
+
+	void suppresionUtilisateur(String id_utilisateur);
 	
 
 }

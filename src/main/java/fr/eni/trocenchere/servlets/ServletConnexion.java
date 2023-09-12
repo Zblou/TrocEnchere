@@ -54,7 +54,7 @@ public class ServletConnexion extends HttpServlet {
 			session.setAttribute("sessionUtilisateur", sessionUtilisateur);
 
 			
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/accueil.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("ServletAccueil");
 			rd.forward(request, response);
 		}else {
 

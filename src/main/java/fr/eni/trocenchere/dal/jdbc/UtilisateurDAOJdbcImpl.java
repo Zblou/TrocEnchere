@@ -16,6 +16,8 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 			+ "										VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo =?, nom=?, prenom=?, email=?, telephone=?, rue=?,"
 			+ "										code_postal=?, ville=?, mot_de_passe=? WHERE id_utilisateur =?;";
+	
+	private static final String DELETE_UTILISATEUR ="DELETE FROM UTILISATEURS WHERE id_utilisateur = ?;";
 
 	
 	
@@ -138,6 +140,23 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void suppresionUtilisateur(String id_utilisateur) {
+		try (Connection cnx = ConnexionProvider.getConnection()){
+			
+			PreparedStatement pstmt = cnx.prepareStatement(DELETE_UTILISATEUR);
+			
+			pstmt.setInt(1, Integer.valueOf(id_utilisateur));
+			
+			pstmt.executeUpdate();
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 

@@ -39,4 +39,9 @@ public class UtilisateurManager {
 
 	}
 
+	public void suppresionUtilisateur(String id_utilisateur) {
+		DAOFactory.getDAOUtilisateur().suppresionUtilisateur(id_utilisateur);
+		
+	}
+
 }

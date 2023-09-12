@@ -40,21 +40,29 @@ public class ServletModifutilisateur extends HttpServlet {
 		String motdepasse = request.getParameter("motdepasse");
 		String confirmationMdp = request.getParameter("confirmationmdp");//Faire la vérif du mots. Si mdp pas identique message d'erreur
 		
-		System.out.println("id ="+ id_utilisateur);
+		if(motdepasse != confirmationMdp) {
+			
+			request.setAttribute("confirmationMdpInvalide", CodesErreurServlet.ERREUR_CONFIRMATION_MDP);
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/modifutilisateur.jsp");
+			rd.forward(request, response);
+			
+		}else {
+			UtilisateurManager.getInstance().modifUtilisateur(id_utilisateur, pseudo, nom, prenom, email, telephone, rue, codePostal,
+					ville, motdepasse);
+
+			//stop l'ancienne session et en refait une pour mettre a jour les données de l'utilisateur stocké en session
+			HttpSession session = request.getSession();
+			session.invalidate();
+			
+			HttpSession nouvelleSession = request.getSession();
+			Utilisateur sessionUtilisateur = UtilisateurManager.getInstance().selectionnerUtilisateur(pseudo);
+			nouvelleSession.setAttribute("sessionUtilisateur", sessionUtilisateur);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/profil.jsp");
+			rd.forward(request, response);
+		}
 		
-		UtilisateurManager.getInstance().modifUtilisateur(id_utilisateur, pseudo, nom, prenom, email, telephone, rue, codePostal,
-															ville, motdepasse);
-		
-		//stop l'ancienne session et en refaire une pour mettre a jour les données de l'utilisateur stocké en session
-		HttpSession session = request.getSession();
-		session.invalidate();
-		
-		HttpSession nouvelleSession = request.getSession();
-		Utilisateur sessionUtilisateur = UtilisateurManager.getInstance().selectionnerUtilisateur(pseudo);
-		nouvelleSession.setAttribute("sessionUtilisateur", sessionUtilisateur);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/profil.jsp");
-		rd.forward(request, response);
+
 	}
 
 }

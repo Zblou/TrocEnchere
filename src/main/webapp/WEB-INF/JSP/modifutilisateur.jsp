@@ -25,11 +25,17 @@
 	</header>
 	<h1>Profil</h1>
  <div>
+ 
+ 	<c:if test="${!empty confirmationMdpInvalide }">
+		<p style="color: red">${LecteurMessage.getMessagesErreur(confirmationMdpInvalide) }</p>
+	</c:if>
+
+	
 	<form method="POST" action="ServletModifutilisateur">
              
              
              <div>
-             	<input type="text" name="id_utilisateur" id="id_utilisateur" value="${sessionScope.sessionUtilisateur.idUtilisateur }">
+             	<input type="hidden" name="id_utilisateur" id="id_utilisateur" value="${sessionScope.sessionUtilisateur.idUtilisateur }">
              </div> 
                     
             <label for="pseudo">Pseudo : </label>
@@ -75,7 +81,7 @@
             <br>
             <input type="submit" value="Enregistrer">
             
-            <a href="">Supprimer mon compte</a>
+            <a href="ServletSuppresionUtilisateur?id_utilisateur=${sessionScope.sessionUtilisateur.idUtilisateur }">Supprimer mon compte</a>
             
       </form>
    </div>
