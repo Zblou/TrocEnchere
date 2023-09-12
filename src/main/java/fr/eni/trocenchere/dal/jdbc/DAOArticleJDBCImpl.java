@@ -37,6 +37,12 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 			+ "WHERE A.id_utilisateur = U.id_utilisateur "
 			+ "ORDER BY U.id_utilisateur ASC;";
 	
+	private static final String SELECT_ARTICLE_BY_ID = "SELECT id_article, nom_article, description, date_debut_encheres, date_fin_encheres, "
+			+ "prix_initial, prix_vente, id_categorie, U.id_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, credit "
+			+ "FROM ARTICLES A "
+			+ "JOIN UTILISATEURS U ON U.id_utilisateur = A.id_utilisateur "
+			+ "WHERE id_article=?;";
+	
 	// UTILE SEULEMENT SI ON NE FAIT PAS LE ON DELETE CASCADE DANS LA BDD
 	// private static final String SUPPRESSION_RETRAIT = "DELETE FROM RETRAITS WHERE id_article=?;";
 	
@@ -206,6 +212,57 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 		}
 		
 		return listeArticle;
+	}
+
+	@Override
+	public Article selectArticleById(int idArticle) {
+		
+		try(Connection cnx = ConnexionProvider.getConnection()){
+			
+			PreparedStatement p = cnx.prepareStatement(SELECT_ARTICLE_BY_ID);
+			p.setInt(1, idArticle);
+			ResultSet rs = p.executeQuery();
+			
+			if(rs.next()) {
+				// ON PARCOURS LA LISTE DES CATEGORIES POUR TROUVER LA CATEGORIE CORRESPONDANT A L'ID
+				// VALEUR PAR DEFAULT SINON PAS CONTENT
+				Categorie catArticle = Categorie.INFORMATIQUE;
+				
+				for(Categorie c : Categorie.values()) {
+					if(c.getIdCategorie() == rs.getInt("id_categorie")) {
+						catArticle = c;
+					}
+				}
+				
+				
+				Article ArticleSelectedById = new Article(rs.getInt("id_article"),
+						rs.getString("nom_article"),
+						rs.getString("description"),
+						rs.getDate("date_debut_encheres").toLocalDate(),
+						rs.getDate("date_fin_encheres").toLocalDate(),
+						rs.getInt("prix_initial"),
+						rs.getInt("prix_vente"),
+						new Utilisateur(rs.getInt("id_utilisateur"),
+								rs.getString("pseudo"),
+								rs.getString("nom"),
+								rs.getString("prenom"),
+								rs.getString("email"),
+								rs.getString("telephone"),
+								rs.getString("rue"),
+								rs.getString("code_postal"),
+								rs.getString("ville"),
+								rs.getInt("credit")),
+						catArticle
+						);
+				return ArticleSelectedById;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("ERREUR SELECT ARTICLE BY ID");
+		}
+		
+		return null;
 	}
 
 }
