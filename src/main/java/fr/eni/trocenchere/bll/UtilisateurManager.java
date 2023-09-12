@@ -32,5 +32,12 @@ public class UtilisateurManager {
 		return DAOFactory.getDAOUtilisateur().selectByPseudo(pseudo);
 	}
 
+	public Utilisateur modifUtilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
+			String codePostal, String ville, String motdepasse) {
+		return DAOFactory.getDAOUtilisateur().modifUtilisateur(pseudo, nom, prenom, email, telephone, rue, codePostal,
+				ville, motdepasse);
+		
+	}
+
 
 }

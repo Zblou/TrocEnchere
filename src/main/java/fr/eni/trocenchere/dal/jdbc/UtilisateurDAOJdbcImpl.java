@@ -10,11 +10,11 @@ import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
 
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
-	private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = ?";
-	private static final String SELECT_BY_PSEUDOS = "SELECT * FROM UTILISATEURS WHERE pseudo = ?";
-	private static final String INSERT_UUTILISATEUR ="INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) "
+	private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = ?;";
+	private static final String SELECT_BY_PSEUDOS = "SELECT * FROM UTILISATEURS WHERE pseudo = ?;";
+	private static final String INSERT_UTILISATEUR ="INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) "
 			+ "										VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-	
+	private static final String UPDATE_UTILISATEUR = "";
 
 	
 	
@@ -23,7 +23,7 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 		//connexion
 		try (Connection cnx = ConnexionProvider.getConnection()){
 			//requete
-			PreparedStatement stmt = cnx.prepareStatement(INSERT_UUTILISATEUR, PreparedStatement.RETURN_GENERATED_KEYS);
+			PreparedStatement stmt = cnx.prepareStatement(INSERT_UTILISATEUR, PreparedStatement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, utilisateur.getPseudo());
 			stmt.setString(2, utilisateur.getNom());
 			stmt.setString(3, utilisateur.getPrenom());
@@ -107,9 +107,16 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 						);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return utilisateur;
+	}
+
+	@Override
+	public Utilisateur modifUtilisateur(String pseudo, String nom, String prenom, String email, String telephone,
+			String rue, String codePostal, String ville, String motdepasse) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

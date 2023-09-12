@@ -63,13 +63,14 @@
             <input type="password" id="motdepasse" name="motdepasse" value ="${sessionScope.sessionUtilisateur.motDePasse}" required>
             
             <label for="confirmmotdepasse">Confirmation : </label>
-            <input type="password" id="confirmmotdepasse" name="confirmmotdepasse" value ="" required>
+            <input type="password" id="confirmationmdp" name="confirmationmdp" value ="" required>
             
-             <br>
+            <p> Crédit : ${sessionScope.sessionUtilisateur.credit} </p>
             <br>
-            <input type="submit" value="Créer">
+            <br>
+            <input type="submit" value="Enregistrer">
             
-            <a href="ServletConnexion">Annuler</a>
+            <a href="">Supprimer mon compte</a>
             
       </form>
    </div>

@@ -13,6 +13,9 @@ public interface DAOUtilisateur {
 	void insert(Utilisateur utilisateur);
 
 	Utilisateur selectByPseudo(String pseudo);
+
+	Utilisateur modifUtilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
+			String codePostal, String ville, String motdepasse);
 	
 
 }
