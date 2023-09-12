@@ -87,24 +87,26 @@
 	<br>
 	
 	<div class="row row-cols-1 row-cols-4 g-4">
-	
-		<c:forEach items="${ListeArticle }" var="Article">
-		
-		  <div class="col">
-		    <div class="card h-100">
-		      <img src="https://cdn.pixabay.com/photo/2014/04/03/10/45/hammer-311343_1280.png" class="card-img-top" alt="ENCHERE">
-		      <div class="card-body">
-		        <h4 class="card-title">${Article.getNomArticle() }</h4>
-		        <br>
-				<p>Prix : ${Article.getPrixVente() }</p>
-				<p>Date de fin d'enchère : ${Article.getDateFinEncheres() }</p>
-				<p>Vendeur : ${Article.getPossesseurArticle().getPseudo() }</p>
-		      </div>
-		    </div>
-		  </div>
-		  
-		</c:forEach>
-
+		<c:choose>
+			<c:when test="${!empty sessionUtilisateur }">
+				<c:forEach items="${ListeArticle }" var="Article">
+				
+				  <div class="col">
+				    <div class="card h-100">
+				      <img src="https://cdn.pixabay.com/photo/2014/04/03/10/45/hammer-311343_1280.png" class="card-img-top" alt="ENCHERE">
+				      <div class="card-body">
+				        <h4 class="card-title">${Article.getNomArticle() }</h4>
+				        <br>
+						<p>Prix : ${Article.getPrixVente() }</p>
+						<p>Date de fin d'enchère : ${Article.getDateFinEncheres() }</p>
+						<p>Vendeur : ${Article.getPossesseurArticle().getPseudo() }</p>
+				      </div>
+				    </div>
+				  </div>
+				  
+				</c:forEach>
+			</c:when>
+		</c:choose>
 	</div>
 
 </body>
