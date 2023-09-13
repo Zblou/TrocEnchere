@@ -2,6 +2,7 @@ package fr.eni.trocenchere.bll;
 
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DAO.DAOFactory;
+import fr.eni.trocenchere.servlets.BusinessException;
 
 public class UtilisateurManager {
 
@@ -20,7 +21,17 @@ public class UtilisateurManager {
 	private UtilisateurManager() {
 	};// CONSTRUCTEUR PAR DEFAUT EN PRIVATE POUR PAS INSTANCIER DE L EXTERIEUR
 
-	public void insert(Utilisateur nouveauUtilisateur) {
+	public void insert(Utilisateur nouveauUtilisateur)  throws BusinessException{
+		
+		BusinessException be = new BusinessException();
+		
+		validationPseudo(nouveauUtilisateur.getPseudo(), be);
+		
+		//si une erreur lors de l'inscription on leve l'esception
+		if(be.hasErreur()) {
+			throw be;
+		}
+		
 		DAOFactory.getDAOUtilisateur().insert(nouveauUtilisateur);
 	}
 
@@ -42,6 +53,12 @@ public class UtilisateurManager {
 	public void suppresionUtilisateur(String id_utilisateur) {
 		DAOFactory.getDAOUtilisateur().suppresionUtilisateur(id_utilisateur);
 		
+	}
+	
+	public void validationPseudo(String pseudo, BusinessException be) {
+		if(pseudo.isBlank() || pseudo.isEmpty()) {
+			be.ajouterCodeErreur(CodesErreurBLL.REGLE_UTILISATEUR_PSEUDO_ERREUR);
+		}
 	}
 
 }

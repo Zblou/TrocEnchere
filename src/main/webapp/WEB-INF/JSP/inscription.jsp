@@ -23,6 +23,18 @@
 		<br> <br> <br>
 </header>
  <div>
+ 
+ 	 <c:if test="${!empty confirmationMdpInvalide }">
+		<p style="color: red">${confirmationMdpInvalide} </p>
+	</c:if>
+ 	<c:if test="${!empty listeCodesErreur }">
+		<p style="color:red">Erreur lors de l'inscription</p>
+		<ul>
+			<c:forEach items="${listeCodesErreur }" var="code">
+			<li>${listeCodesErreur.getMessageErreur(code) }</li>
+			</c:forEach>
+		</ul>
+	</c:if>
 	<form method="POST" action="ServletInscription">
                      
             <label for="pseudo">Pseudo : </label>
