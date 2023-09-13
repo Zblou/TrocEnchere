@@ -14,12 +14,14 @@ public interface DAOArticle {
 			String villeDepot);
 
 	void modifArticleById(String idArticleModif, String articleName, String descriptionArticle, String ArticleCategorie, String miseAPrix,
-			String debutEnchere, String finEnchere, String rueDepot, String codePostalDepot, String villeDepot);
+			String prixVente, String debutEnchere, String finEnchere, String rueDepot, String codePostalDepot, String villeDepot);
 
 	void deleteArticle(int idArticleDelete);
 
 	ArrayList<Article> selectAllArticles();
 
 	Article selectArticleById(int idArticle);
+
+	void modifPrixVenteArticle(int idArticle, Integer montantNouvelleEnchere);
 
 }

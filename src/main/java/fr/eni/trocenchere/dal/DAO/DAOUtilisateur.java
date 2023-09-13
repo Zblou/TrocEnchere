@@ -18,6 +18,12 @@ public interface DAOUtilisateur {
 			String codePostal, String ville, String motdepasse);
 
 	void suppresionUtilisateur(String id_utilisateur);
+
+	void debiterCreditUtilisateur(int idUtilisateur, int creditActuel, Integer montantNouvelleEnchere);
+
+	void ajouterCreditUtilisateur(int idUtilisateur, int creditActuel, Integer montantNouvelleEnchere);
+
+	Utilisateur selectUtilisateurById(int idUtilisateurAncienneEnchere);
 	
 
 }

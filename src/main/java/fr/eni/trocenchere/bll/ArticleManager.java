@@ -42,9 +42,9 @@ public class ArticleManager {
 	}
 
 	public void modifArticleById(String idArticleModif, String articleName, String descriptionArticle, String ArticleCategorie, String miseAPrix,
-			String debutEnchere, String finEnchere, String rueDepot, String codePostalDepot, String villeDepot) {
+			String prixVente, String debutEnchere, String finEnchere, String rueDepot, String codePostalDepot, String villeDepot) {
 		DAOFactory.getDAOArticleJDBCIpml().modifArticleById(idArticleModif, articleName,
-				descriptionArticle, ArticleCategorie, miseAPrix, debutEnchere, finEnchere, rueDepot, codePostalDepot, villeDepot);
+				descriptionArticle, ArticleCategorie, miseAPrix, prixVente, debutEnchere, finEnchere, rueDepot, codePostalDepot, villeDepot);
 	}
 
 	public ArrayList<Article> selectAllArticles() {

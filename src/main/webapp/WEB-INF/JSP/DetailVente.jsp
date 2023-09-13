@@ -18,7 +18,6 @@
 	</div>
 	<br>
 	<br>
-	<br>
 </header>
 	
 	<div class="row">
@@ -57,23 +56,47 @@
 			    <div class="col-4 text-start">${requestScope.ArticleVendu.getDateFinEncheres() }</div>
 			  </div>
 			  <br>
+			  <div class="row">
+			    <div class="col-4 text-end"><label for="Vendeur" class="form-label">Vendeur :</label></div>
+			    <div class="col-4 text-start">${requestScope.ArticleVendu.getPossesseurArticle().getPseudo() }</div>
+			  </div>
 			  <br>
+			  <c:choose>
+				  <c:when test="${sessionScope.sessionUtilisateur.getCredit() < requestScope.ArticleVendu.getPrixVente()}">
+				  	  <div class="col-12"><label for="creditInsuffisant" class="form-label" style="font-weight:bold; color:red;">VOTRE CREDIT ACTUEL (${sessionScope.sessionUtilisateur.getCredit() }) NE VOUS PERMET PAS D'ENCHERIR SUR CET ARTICLE</label></div>
+					  <br>
+					  <br>
+				  </c:when>
+				  <c:otherwise>
+					  <form action="ServletEnchere" method="POST">
+						  <div class="row">
+						    <div class="col-4 text-end pt-2"><label for="enchereUtilisateur" class="form-label" style="font-weight:bold;">ENCHERIR :</label></div>
+						    <div class="col-3 pt-2"><input name="enchereUtilisateur" min="${requestScope.ArticleVendu.getPrixVente()+1 }" max="${sessionScope.sessionUtilisateur.getCredit() }" type="number" placeholder="Min : ${requestScope.ArticleVendu.getPrixVente()+1 }"></div>
+						    <input type="submit" class="btn btn-primary col-2 offset-1" value="Enchérir">
+						  </div>
+						  <input value="${requestScope.ArticleVendu.getIdArticle() }" name="idArticleVendu" hidden="true">
+						  <input value="${sessionScope.sessionUtilisateur.getPseudo() }" name="pseudoUtilisateurAcheteur" hidden="true">
+					  </form>
+					  <br>
+					  <br>
+				  </c:otherwise>
+			  </c:choose>		  
 			  <div>
 			  </div>
 			  <div class="col-10 offset-1">
 			  	<fieldset class="border">
 			  		<legend>RETRAIT</legend>
 					  <div class="row">
-					    <div class="col-4 text-end"><label for="RueDepot" class="form-label">Rue</label></div>
-					    <div class="col-4 text-start">${requestScope.ArticleVendu.getPossesseurArticle().getRue() }</div>
+					    <div class="col-6 text-end"><label for="RueDepot" class="form-label">Rue :</label></div>
+					    <div class="col-3 text-start">${requestScope.ArticleVendu.getPossesseurArticle().getRue() }</div>
 					  </div>
 					  <div class="row">
-					    <div class="col-4 text-end"><label for="CodePostalDepot" class="form-label">Code Postal</label></div>
-					    <div class="col-4 text-start">${requestScope.ArticleVendu.getPossesseurArticle().getCodePostal() }</div>
+					    <div class="col-6 text-end"><label for="CodePostalDepot" class="form-label">Code Postal :</label></div>
+					    <div class="col-3 text-start">${requestScope.ArticleVendu.getPossesseurArticle().getCodePostal() }</div>
 					  </div>
 					  <div class="row">
-					    <div class="col-4 text-end"><label for="VilleDepot" class="form-label">Ville</label></div>
-					    <div class="col-4 text-start">${requestScope.ArticleVendu.getPossesseurArticle().getVille() }</div>
+					    <div class="col-6 text-end"><label for="VilleDepot" class="form-label">Ville :</label></div>
+					    <div class="col-3 text-start">${requestScope.ArticleVendu.getPossesseurArticle().getVille() }</div>
 					  </div>
 			  	</fieldset>
 			  </div>

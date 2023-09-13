@@ -16,14 +16,16 @@ import fr.eni.trocenchere.dal.DAO.DAOArticle;
 public class DAOArticleJDBCImpl implements DAOArticle{
 
 	private static final String INSERTION_ARTICLE = "INSERT INTO ARTICLES(nom_article, description,"
-			+ " date_debut_encheres, date_fin_encheres, prix_initial, id_utilisateur, id_categorie)"
-			+ " VALUES (? , ? , ? , ? , ? , ? , ?);";
+			+ " date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, id_utilisateur, id_categorie)"
+			+ " VALUES (? , ? , ? , ? , ?, ? , ? , ?);";
 	
 	private static final String INSERTION_RETRAIT = "INSERT INTO RETRAITS(id_article, rue, code_postal, ville) VALUES (?,?,?,?);";
 	
 	private static final String MODIFICATION_ARTICLE = "UPDATE ARTICLES SET nom_article=?, description=?,"
 			+ "date_debut_encheres=?, date_fin_encheres=?, prix_initial=?, prix_vente=?,"
 			+ " id_categorie=? WHERE id_article = ?;";
+	
+	private static final String MODIFICATION_PRIX_VENTE_ARTICLE = "UPDATE ARTICLES SET prix_vente=? WHERE id_article=?;";
 	
 	private static final String MODIFICATION_RETRAIT = "UPDATE RETRAITS SET rue=?, code_postal=?, ville=?"
 			+ " WHERE id_article=?;";
@@ -57,8 +59,9 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 			p.setDate(3, Date.valueOf(article.getDateDebutEncheres()));
 			p.setDate(4, Date.valueOf(article.getDateFinEncheres()));
 			p.setInt(5, article.getMiseAPrix());
-			p.setInt(6, article.getPossesseurArticle().getIdUtilisateur());
-			p.setInt(7, article.getCatArticle().getIdCategorie());
+			p.setInt(6, article.getMiseAPrix());
+			p.setInt(7, article.getPossesseurArticle().getIdUtilisateur());
+			p.setInt(8, article.getCatArticle().getIdCategorie());
 			p.executeUpdate();
 			
 			ResultSet rs = p.getGeneratedKeys();
@@ -91,7 +94,7 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 
 	@Override
 	public void modifArticleById(String idArticleModif, String articleName, String descriptionArticle, String ArticleCategorie, String miseAPrix,
-			String debutEnchere, String finEnchere, String rueDepot, String codePostalDepot, String villeDepot) {
+			String prixVente, String debutEnchere, String finEnchere, String rueDepot, String codePostalDepot, String villeDepot) {
 
 		try(Connection cnx = ConnexionProvider.getConnection()){
 			
@@ -101,7 +104,7 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 			p.setDate(3, Date.valueOf(debutEnchere));
 			p.setDate(4, Date.valueOf(finEnchere));
 			p.setInt(5, Integer.valueOf(miseAPrix));
-			p.setInt(6, Integer.valueOf(miseAPrix));
+			p.setInt(6, Integer.valueOf(prixVente));
 			p.setInt(7, Categorie.valueOf(ArticleCategorie).getIdCategorie());
 			p.setInt(8, Integer.valueOf(idArticleModif));
 			p.executeUpdate();
@@ -137,7 +140,7 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 //			p2.executeUpdate();
 //			}
 			
-			System.out.println("MODIFICATION ARTICLE" + idArticleDelete + " ET RETRAIT DE OUF");
+			System.out.println("DELETE ARTICLE" + idArticleDelete + " ET RETRAIT DE OUF");
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -263,6 +266,23 @@ public class DAOArticleJDBCImpl implements DAOArticle{
 		}
 		
 		return null;
+	}
+
+	@Override
+	public void modifPrixVenteArticle(int idArticle, Integer montantNouvelleEnchere) {
+		
+		try(Connection cnx = ConnexionProvider.getConnection()){
+			
+			PreparedStatement p = cnx.prepareStatement(MODIFICATION_PRIX_VENTE_ARTICLE);
+			p.setInt(1, Integer.valueOf(montantNouvelleEnchere));
+			p.setInt(2, Integer.valueOf(idArticle));
+			p.executeUpdate();
+			
+			System.out.println("MODIFICATION PrixVente de l'ARTICLE EFFECTUAX");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}		
 	}
 
 }
