@@ -23,7 +23,12 @@
 		
 		<img alt="Art et Decoration" src="Images/art.jpg" width="210px" height="200px">
 		<label for="ArtEtFenetre"><h3>Art</h3></label>
-
+		
+		<c:forEach items="${listeCategorie }" var="categorie">
+		
+		</c:forEach>
+		
+		
 		<br>
 		
 	

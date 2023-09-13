@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import fr.eni.trocenchere.bll.BusinessException;
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
 
@@ -24,7 +25,14 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
 	
 	
-	public void insert(Utilisateur utilisateur) {
+	public void insert(Utilisateur utilisateur) throws BusinessException{
+		
+//		if((utilisateur.getPseudo().isEmpty() || utilisateur.getPseudo().isBlank()) || (utilisateur.getPrenom() == null) || (utilisateur.getEmail() == null)
+//			|| (utilisateur.getTelephone() == null) || (utilisateur.getRue()== null) || (utilisateur.getCodePostal()== null)
+//			|| (utilisateur.getVille()== null) || (utilisateur.getMotDePasse()== null)) {
+//			
+//			throw new BusinessException(CodesErreurDAL.ERREUR_INSERTION_UTILISATEUR);
+//		}
 		
 		//connexion
 		try (Connection cnx = ConnexionProvider.getConnection()){
