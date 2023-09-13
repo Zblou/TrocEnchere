@@ -12,7 +12,7 @@
 	crossorigin="anonymous">
 <title>Vuiller you inscrire </title>
 </head>
-<body class="container text-center">
+<body class="container text-center bg-body-tertiary">
 
 <header>
 		<br>
@@ -40,54 +40,74 @@
 	</c:if>
 	
 	
-	<form method="POST" action="ServletInscription">
-                     
-            <label for="pseudo">Pseudo : </label>
-            <input type="text" id="pseudo" name="pseudo">
+	<form method="POST" action="ServletInscription" class="row g-3">
+	
+            <div class="row justify-content-center">
+	            <div class="col-3">      
+	           		<label for="pseudo" class="form-label">Pseudo : </label>
+	           		<input type="text" id="pseudo" name="pseudo" class="form-control">
+	            </div>
+	            <div class="col-3">
+					<label for="nom" class="form-label">Nom : </label>
+	           		<input type="text" id="nom" name="nom" class="form-control" required>
+	            </div>
+            </div>
             
             
-			<label for="nom">Nom : </label>
-            <input type="text" id="nom" name="nom" required>
-            <br>
-            <br>
-            <label for="prenom">Prenom : </label>
-            <input type="text" id="prenom" name="prenom" required>
-           
-           
-            <label for="email">Email : </label>
-            <input type="email" id="email" name="email" required>
-            <br>
-            <br>
-           
-            <label for="telephone">Téléphone : </label>
-            <input type="text" id="telephone" name="telephone"  required>
-				
-			<label for="rue">Rue : </label>
-            <input type="text" id="rue" name="rue" required>
-            <br>
-            <br>
-            <label for="codePostal">Code Postal : </label>
-            <input type="text" id="codePostal" name="codePostal"  required>
+             <div class="row justify-content-center">
+	            <div class="col-3">
+	            	<label for="prenom" class="form-label">Prenom : </label>
+	            	<input type="text" id="prenom" name="prenom" class="form-control" required>
+	           	</div>
+	           	<div class="col-3">
+		            <label for="email" class="form-label">Email : </label>
+		            <input type="email" id="email" name="email" class="form-control" required>
+	            </div>
+            </div>
             
-            <label for="ville">Ville : </label>
-            <input type="text" id="ville" name="ville" required>
-	  		<br>
-            <br>
-  
-            <label for="motdepasse">Mot de passe : </label>
-            <input type="password" id="motdepasse" name="motdepasse" required>
+			<div class="row justify-content-center">         
+	           	<div class="col-3">
+	            	<label for="telephone" class="form-label">Téléphone : </label>
+	            	<input type="text" id="telephone" name="telephone"  class="form-control" required>
+				</div>
+				<div class="col-3">	
+					<label for="rue" class="form-label">Rue : </label>
+	            	<input type="text" id="rue" name="rue" class="form-control" required>
+	            </div>
+            </div>
+    
+    		<div class="row justify-content-center">
+	            <div class="col-3">
+	            	<label for="codePostal" class="form-label">Code Postal : </label>
+	            	<input type="text" id="codePostal" name="codePostal" class="form-control" required>
+	            </div>
+	            <div class="col-3">
+	            	<label for="ville" class="form-label">Ville : </label>
+	            	<input type="text" id="ville" name="ville" class="form-control" required>
+		  		</div>
+	  		</div>
+	  		
+			<div class="row justify-content-center">
+	  			<div class="col-3">
+	            	<label for="motdepasse" class="form-label">Mot de passe : </label>
+	            	<input type="password" id="motdepasse" name="motdepasse" class="form-control" required>
+	            </div>
+	            <div class="col-3">	
+	            	<label for="confirmmotdepasse" class="form-label">Confirmation : </label>
+	            	<input type="password" id="confirmmotdepasse" name="confirmmotdepasse" class="form-control" required>
+	            </div>
+            </div>
+>
+              <div class="col-12">
+   				 <input type="submit" value="S inscrire" class="btn btn-success">
+ 			 </div>
             
-            <label for="confirmmotdepasse">Confirmation : </label>
-            <input type="password" id="confirmmotdepasse" name="confirmmotdepasse" required>
-            
-             <br>
-            <br>
-            <input type="submit" value="Créer">
-            
-            <a href="ServletConnexion">Annuler</a>
+            <a class="link-body-emphasis" href="ServletConnexion">Annuler</a>
             
       </form>
    </div>
+   
+   
 </body>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

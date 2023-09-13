@@ -9,7 +9,7 @@
 
 <title>Accueil</title>
 </head>
-<body class="container text-center">
+<body class="container text-center bg-body-tertiary">
 
 <header>
 	<div class="row mb-5">
@@ -19,10 +19,7 @@
 				<div class="col-6 offset-2">
 					<ul class="nav">
 						<li class="nav-item">
-							<a class="nav-link">Bonjour ${sessionScope.sessionUtilisateur.pseudo}</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link">Enchères</a>
+							<a class="nav-link disabled">Bonjour ${sessionScope.sessionUtilisateur.pseudo}</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="ServletArticle">Vendre un article</a>
@@ -92,7 +89,7 @@
 				<c:forEach items="${ListeArticle }" var="Article">
 				
 				  <div class="col">
-				    <div class="card h-100">
+				    <div class="card h-100 bg-warning-subtle">
 				      <img src="https://cdn.pixabay.com/photo/2014/04/03/10/45/hammer-311343_1280.png" class="card-img-top" alt="ENCHERE">
 				      <div class="card-body">
 				        <h4 class="card-title">${Article.getNomArticle() }</h4>
@@ -108,14 +105,14 @@
 			<c:otherwise>
 				<c:forEach items="${ListeArticle }" var="Article">
 				  <div class="col">
-				    <div class="card h-100">
+				    <div class="card h-100 bg-warning-subtle">
 				      <img src="https://cdn.pixabay.com/photo/2014/04/03/10/45/hammer-311343_1280.png" class="card-img-top" alt="ENCHERE">
 				      <div class="card-body">
-				        <h4 class="card-title"><a href="ServletDetailVente?idArticleVendu=${Article.getIdArticle() }" class="stretched-link" style="position: relative;">${Article.getNomArticle() }</a></h4>
+				        <h4 class="card-title"><a href="ServletDetailVente?idArticleVendu=${Article.getIdArticle() }" class="stretched-link link-body-emphasis" style="position: relative;">${Article.getNomArticle() }</a></h4>
 				        <br>
 						<p>Prix : ${Article.getPrixVente() }</p>
 						<p>Date de fin d'enchère : ${Article.getDateFinEncheres() }</p>
-						<p>Vendeur : <a href="ServletProfil?pseudoUtilisateur=${Article.getPossesseurArticle().getPseudo() }">${Article.getPossesseurArticle().getPseudo() }</a></p>
+						<p>Vendeur : <a class="link-body-emphasis" href="ServletProfil?pseudoUtilisateur=${Article.getPossesseurArticle().getPseudo() }" >${Article.getPossesseurArticle().getPseudo() }</a></p>
 				      </div>
 				    </div>
 				  </div>
