@@ -29,9 +29,7 @@ public class AjoutCategorie extends HttpServlet {
 		
 		//récup des valeurs du formulaire
 
-	String nouvelleCategorie = request.getParameter("Nom");
-
-
+		String nouvelleCategorie = request.getParameter("Nom");	
 
 		
 		Categoriedavid categorie = new Categoriedavid(nouvelleCategorie);
