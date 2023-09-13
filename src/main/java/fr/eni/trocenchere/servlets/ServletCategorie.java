@@ -1,11 +1,10 @@
 package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-
-import fr.eni.trocenchere.bll.CategorieManeger;
-
-
+import fr.eni.trocenchere.bll.CategorieManegerDavid;
+import fr.eni.trocenchere.bo.CategorieDavid;
 import jakarta.servlet.RequestDispatcher;
 
 import jakarta.servlet.ServletException;
@@ -24,12 +23,16 @@ public class ServletCategorie extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
+
+		//renvoi la liste de categorie et les affiche dans categorie.
+		ArrayList<CategorieDavid> list = CategorieManegerDavid.getInstance().selectALLLibelle();
+		request.setAttribute("listeCategorie", list);	
+		
+		System.out.println(list);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Categorie.jsp");
 		rd.forward(request, response);
 		
-		//renvoi la liste de categorie et les affiche dans categorie.
-		request.setAttribute("listeCategorie", CategorieManeger.getInstance().selectALLLibelle());	
 	}
 
 

@@ -17,30 +17,21 @@
 </head>
 <body>
 		
-	<form method="POST" action="ServletCategorie">
-		
-		<h1>Category</h1>
-		
-		<img alt="Art et Decoration" src="Images/art.jpg" width="210px" height="200px">
-		<label for="ArtEtFenetre"><h3>Art</h3></label>
-		
-		<c:forEach items="${listeCategorie }" var="categorie">
-		<p>${categorie.getNom}</p>
-		</c:forEach>
-		
-		
-		<br>
-		
+	<h1>Category</h1>
 	
+	<img alt="Art et Decoration" src="Images/art.jpg" width="210px" height="200px">
+	<label for="ArtEtFenetre"><h3>Art</h3></label>
 	
-	<div class="row">
-	<div class="col-4">
-		<a href="AjoutCategorie">Ajouter-Une-Categorie</a>
+	<c:forEach items="${listeCategorie}" var="categorie">
+		<div>${categorie.libelle}</div>
+	</c:forEach>
+	
+	<br>		
+		<div class="row">
+		<div class="col-4">
+			<a href="AjoutCategorie">Ajouter-Une-Categorie</a>
+		</div>
 	</div>
-</div>
-<br>
-		 
-	</form>
-
+	<br>
 </body>
 </html>
