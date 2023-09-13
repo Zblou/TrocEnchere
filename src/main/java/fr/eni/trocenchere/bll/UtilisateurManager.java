@@ -2,7 +2,6 @@ package fr.eni.trocenchere.bll;
 
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DAO.DAOFactory;
-import fr.eni.trocenchere.servlets.BusinessException;
 
 public class UtilisateurManager {
 
@@ -56,7 +55,7 @@ public class UtilisateurManager {
 	}
 	
 	public void validationPseudo(String pseudo, BusinessException be) {
-		if(pseudo.isBlank() || pseudo.isEmpty()) {
+		if(pseudo == null || pseudo.isEmpty()) {
 			be.ajouterCodeErreur(CodesErreurBLL.REGLE_UTILISATEUR_PSEUDO_ERREUR);
 		}
 	}

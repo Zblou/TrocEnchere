@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,18 +28,22 @@
  	 <c:if test="${!empty confirmationMdpInvalide }">
 		<p style="color: red">${confirmationMdpInvalide} </p>
 	</c:if>
+	
+	
  	<c:if test="${!empty listeCodesErreur }">
 		<p style="color:red">Erreur lors de l'inscription</p>
 		<ul>
 			<c:forEach items="${listeCodesErreur }" var="code">
-			<li>${listeCodesErreur.getMessageErreur(code) }</li>
+				<li>${LecteurMessage.getMessagesErreur(code) }</li>
 			</c:forEach>
 		</ul>
 	</c:if>
+	
+	
 	<form method="POST" action="ServletInscription">
                      
             <label for="pseudo">Pseudo : </label>
-            <input type="text" id="pseudo" name="pseudo" required>
+            <input type="text" id="pseudo" name="pseudo">
             
             
 			<label for="nom">Nom : </label>

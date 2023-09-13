@@ -25,6 +25,7 @@
 		<label for="ArtEtFenetre"><h3>Art</h3></label>
 		
 		<c:forEach items="${listeCategorie }" var="categorie">
+		
 		</c:forEach>
 		
 		

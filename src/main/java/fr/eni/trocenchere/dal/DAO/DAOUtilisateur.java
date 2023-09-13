@@ -2,8 +2,8 @@ package fr.eni.trocenchere.dal.DAO;
 
 
 
+import fr.eni.trocenchere.bll.BusinessException;
 import fr.eni.trocenchere.bo.Utilisateur;
-import fr.eni.trocenchere.servlets.BusinessException;
 
 
 public interface DAOUtilisateur {

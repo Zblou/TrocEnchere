@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import fr.eni.trocenchere.bll.BusinessException;
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
-import fr.eni.trocenchere.servlets.BusinessException;
 
 public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 

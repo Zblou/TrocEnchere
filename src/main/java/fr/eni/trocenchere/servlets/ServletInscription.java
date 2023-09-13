@@ -2,7 +2,7 @@ package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
 
-import fr.eni.trocenchere.bll.CodesErreurBLL;
+import fr.eni.trocenchere.bll.BusinessException;
 import fr.eni.trocenchere.bll.UtilisateurManager;
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.messages.LecteurMessage;
@@ -46,16 +46,14 @@ public class ServletInscription extends HttpServlet {
 		Utilisateur nouveauUtilisateur = new Utilisateur(pseudo, nom, prenom, email, telephone, rue, codePostal, ville,
 				motDePasse);
 
-		if(motDePasse != confirmationMdp) {
+		if(!motDePasse.equals(confirmationMdp)) {
 			
-			request.setAttribute("confirmationMdpInvalide", LecteurMessage.getMessagesErreur(CodesErreurServlet.ERREUR_CONFIRMATION_MDP));
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/inscription.jsp");
-
+		request.setAttribute("confirmationMdpInvalide", LecteurMessage.getMessagesErreur(CodesErreurServlet.ERREUR_CONFIRMATION_MDP));
 			
 		}
 		
 		
-		if(!be.hasErreur()) {
+		if(!be.hasErreur()&& motDePasse.equals(confirmationMdp)) {
 			// envoie des données a la bll
 			try {
 				UtilisateurManager.getInstance().insert(nouveauUtilisateur);
@@ -71,7 +69,7 @@ public class ServletInscription extends HttpServlet {
 				//si erreur de l'insertion on part vers le formulairs d'inscription
 				request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
 				
-				System.out.println("insert erreur"+e.getListeCodesErreur());
+				System.out.println("insert erreur" + e.getListeCodesErreur());
 				
 				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/inscription.jsp");
 				rd.forward(request, response);
