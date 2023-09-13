@@ -2,6 +2,7 @@ package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
 
+import fr.eni.trocenchere.bll.CategorieManeger;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -19,6 +20,9 @@ public class ServletCategorie extends HttpServlet {
 				
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/Categorie.jsp");
 		rd.forward(request, response);
+		
+		//renvoi la liste de categorie et les affiche dans categorie.
+		request.setAttribute("listeCategorie", CategorieManeger.getInstance().selectALLLibelle());	
 	}
 
 
