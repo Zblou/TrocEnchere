@@ -50,4 +50,8 @@ public class ArticleManager {
 	public ArrayList<Article> selectAllArticles() {
 		return DAOFactory.getDAOArticleJDBCIpml().selectAllArticles();
 	}
+
+	public Article selectArticleById(int idArticle) {
+		return DAOFactory.getDAOArticleJDBCIpml().selectArticleById(idArticle);
+	}
 }

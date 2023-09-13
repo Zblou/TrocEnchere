@@ -5,26 +5,6 @@
     <welcome-file>ServletAccueil</welcome-file>
   </welcome-file-list>
   <session-config>
-    <session-timeout>500</session-timeout>
+    <session-timeout>5</session-timeout>
   </session-config>
-  <servlet>
-    <description></description>
-    <display-name>ServletCategorie</display-name>
-    <servlet-name>ServletCategorie</servlet-name>
-    <servlet-class>fr.eni.trocenchere.servlets.ServletCategorie</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletCategorie</servlet-name>
-    <url-pattern>/ServletCategorie</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>AjoutCategorie</display-name>
-    <servlet-name>AjoutCategorie</servlet-name>
-    <servlet-class>fr.eni.trocenchere.servlets.AjoutCategorie</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AjoutCategorie</servlet-name>
-    <url-pattern>/AjoutCategorie</url-pattern>
-  </servlet-mapping>
 </web-app>

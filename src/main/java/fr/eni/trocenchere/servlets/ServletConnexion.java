@@ -50,11 +50,11 @@ public class ServletConnexion extends HttpServlet {
 			
 			//Création de ma session
 			HttpSession session = request.getSession();
-			Utilisateur sessionUtilisateur = UtilisateurManager.selectionnerUtilisateur(pseudoCnx);
+			Utilisateur sessionUtilisateur = UtilisateurManager.getInstance().selectionnerUtilisateur(pseudoCnx);
 			session.setAttribute("sessionUtilisateur", sessionUtilisateur);
 
 			
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/accueil.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("ServletAccueil");
 			rd.forward(request, response);
 		}else {
 

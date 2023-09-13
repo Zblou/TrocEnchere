@@ -20,4 +20,6 @@ public interface DAOArticle {
 
 	ArrayList<Article> selectAllArticles();
 
+	Article selectArticleById(int idArticle);
+
 }

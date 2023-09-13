@@ -35,7 +35,7 @@
 	</c:if>
 
 	<div class="row">
-		<form method="POST" action="" class="row">
+		<form method="POST" action="ServletConnexion" class="row">
 			<div class="row justify-content-center">
 				<div class="col-2">
 					<label for="identifiant" class="form-label">Identifiant</label>

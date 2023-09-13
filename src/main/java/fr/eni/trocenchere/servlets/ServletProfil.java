@@ -2,6 +2,7 @@ package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
 
+import fr.eni.trocenchere.bll.UtilisateurManager;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,8 +16,17 @@ public class ServletProfil extends HttpServlet {
        
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		if(request.getParameter("pseudoUtilisateur") != null) {
+			
+			request.setAttribute("profilVendeur", UtilisateurManager.getInstance().selectionnerUtilisateur(request.getParameter("pseudoUtilisateur")));
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/profil.jsp");
+			rd.forward(request, response);
+		}else {
+		
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/JSP/profil.jsp");
 		rd.forward(request, response);
+		}
 	}
 
 
