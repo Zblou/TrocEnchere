@@ -26,29 +26,125 @@
 	<h1>Profil</h1>
 	<c:choose>
 		<c:when test="${!empty profilVendeur}">
-			<div>
-				<p>Pseudo : ${profilVendeur.pseudo}</p>
-				<p>Nom : ${profilVendeur.nom}</p>
-				<p>Prénom : ${profilVendeur.prenom}</p>
-				<p>Email : ${requestScope.profilVendeur.email}</p>
-				<p>Téléphone : ${profilVendeur.telephone}</p>
-				<p>Rue : ${profilVendeur.rue}</p>
-				<p>Code postal : ${profilVendeur.codePostal}</p>
-				<p>Ville : ${profilVendeur.ville}</p>
+		<div class="justify-content-center">
+			<div class="card">
+				<div class="card-header">
+    				<h5 class="card-title">${profilVendeur.nom} ${profilVendeur.prenom}</h5>
+  				</div>
+  				<div class="card-body">
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Pseudo :</p>
+  						</div>
+  						 <div class="col-3">
+  						 	<p class="text-start">${profilVendeur.pseudo}</p>
+  						</div>
+  					</div>
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Email :</p>
+  						</div>
+  						 <div class="col-4">
+  						 	<p class="text-start">${requestScope.profilVendeur.email}</p>
+  						</div>
+  					</div>
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Téléphone :</p>
+  						</div>
+  						 <div class="col-3">
+  						 	<p class="text-start">${profilVendeur.telephone}</p>
+  						</div>
+  					</div>  
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Rue :</p>
+  						</div>
+  						 <div class="col-3">
+  						 	<p class="text-start">${profilVendeur.rue}</p>
+  						</div>
+  					</div> 					
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Code postal :</p>
+  						</div>
+  						 <div class="col-3">
+  						 	<p class="text-start">${profilVendeur.codePostal}</p>
+  						</div>
+  					</div>
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Ville :</p>
+  						</div>
+  						 <div class="col-3">
+  						 	<p class="text-start">${profilVendeur.ville}</p>
+  						</div>
+  					</div>
+  				</div>
 			</div>
+		</div>
 		</c:when>
 		<c:otherwise>
-			<div>
-				<p>Pseudo : ${sessionScope.sessionUtilisateur.pseudo}</p>
-				<p>Nom : ${sessionScope.sessionUtilisateur.nom}</p>
-				<p>Prénom : ${sessionScope.sessionUtilisateur.prenom}</p>
-				<p>Email : ${sessionScope.sessionUtilisateur.email}</p>
-				<p>Téléphone : ${sessionScope.sessionUtilisateur.telephone}</p>
-				<p>Rue : ${sessionScope.sessionUtilisateur.rue}</p>
-				<p>Code postal : ${sessionScope.sessionUtilisateur.codePostal}</p>
-				<p>Ville : ${sessionScope.sessionUtilisateur.ville}</p>
-				<a href="ServletModifutilisateur">Modifier</a>
-			</div>
+		<div class="container text-center">
+			<div class="card">
+				<div class="card-header">
+    				<h5 class="card-title">${sessionScope.sessionUtilisateur.nom} ${sessionScope.sessionUtilisateur.prenom}</h5>
+  				</div>
+  				<div class="card-body">
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Pseudo :</p>
+  						</div>
+  						 <div class="col-3">
+  						 	<p class="text-start">${sessionScope.sessionUtilisateur.pseudo}</p>
+  						</div>
+  					</div>
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Email :</p>
+  						</div>
+  						 <div class="col-3">
+  						 	<p class="text-start">${sessionScope.sessionUtilisateur.email}</p>
+  						</div>
+  					</div>
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Téléphone :</p>
+  						</div>
+  						 <div class="col-3">
+  						 	<p class="text-start">${sessionScope.sessionUtilisateur.telephone}</p>
+  						</div>
+  					</div>  
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Rue :</p>
+  						</div>
+  						 <div class="col-3">
+  						 	<p class="text-start">${sessionScope.sessionUtilisateur.rue}</p>
+  						</div>
+  					</div> 					
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Code postal :</p>
+  						</div>
+  						 <div class="col-3">
+  						 	<p class="text-start">${sessionScope.sessionUtilisateur.codePostal}</p>
+  						</div>
+  					</div>
+  					<div class="row justify-content-center">
+  						<div class="col-3">
+  							<p class="text-end">Ville :</p>
+  						</div>
+  						 <div class="col-3">
+  						 	<p class="text-start">${sessionScope.sessionUtilisateur.ville}</p>
+  						</div>
+  					</div>
+  					<div class="row">
+  						<a href="ServletModifutilisateur">Modifier</a>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
 		</c:otherwise>
 	</c:choose>
 
