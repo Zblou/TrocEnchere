@@ -27,10 +27,10 @@ public class ServletModifArticle extends HttpServlet {
 		// On arrive ici en cliquant sur un article si on en est le possesseur (et connecté)
 		// On dois envoyer depuis 'lacceuil l'objet à modofier
 		
-		if(request.getParameter("ObjetAModif") != null) {
+		if(request.getParameter("idArticleModif") != null) {
 			
 			// CRER UN OBJET RANDOM POUR TEST
-			request.setAttribute("ObjetAModif", request.getParameter("ObjetAModif"));
+			request.setAttribute("ObjetAModif", ArticleManager.getInstance().selectArticleById(Integer.valueOf(request.getParameter("idArticleModif"))));
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/ModifArticle.jsp");
 			rd.forward(request, response);
@@ -40,9 +40,9 @@ public class ServletModifArticle extends HttpServlet {
 			System.out.println("doGet de ServletModifArticle Mais sans avoir recu l'objet à modifier (donc creation d'un objet test)");
 			
 			// A ENLEVER !!! JUSTE LA CAR ON A PAS ENCORE L'OBJET A MODIF ENVOYER DE L'ACCEUIL
-			Utilisateur usr = new Utilisateur();
-			request.setAttribute("ObjetAModif", new Article(4, "Article2ouf", "Un article vraiment super", LocalDate.now(),
-															LocalDate.of(2023, 9, 10), 100, 200, usr, Categorie.SPORTSLOISIRS));
+//			Utilisateur usr = new Utilisateur();
+//			request.setAttribute("ObjetAModif", new Article(4, "Article2ouf", "Un article vraiment super", LocalDate.now(),
+//															LocalDate.of(2023, 9, 10), 100, 200, usr, Categorie.SPORTSLOISIRS));
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/ModifArticle.jsp");
 			rd.forward(request, response);
 		}
@@ -71,7 +71,13 @@ public class ServletModifArticle extends HttpServlet {
 			
 			ArticleManager.getInstance().modifArticleById(idArticleModif, ArticleName, DescriptionArticle,
 					ArticleCategorie, MiseAPrix, MiseAPrix, DebutEnchere, FinEnchere, RueDepot, CodePostalDepot, VilleDepot);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/ServletAccueil");
+			rd.forward(request, response);
+			
 		}else {
+			RequestDispatcher rd = request.getRequestDispatcher("/ServletAccueil");
+			rd.forward(request, response);
 			System.out.println("On est dans le doPost de modifArticle mais sans avoir récupérer d'id");
 		}
 

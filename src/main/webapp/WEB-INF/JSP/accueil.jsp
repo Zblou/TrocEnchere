@@ -108,7 +108,14 @@
 				    <div class="card h-100 bg-warning-subtle">
 				      <img src="https://cdn.pixabay.com/photo/2014/04/03/10/45/hammer-311343_1280.png" class="card-img-top" alt="ENCHERE">
 				      <div class="card-body">
-				        <h4 class="card-title"><a href="ServletDetailVente?idArticleVendu=${Article.getIdArticle() }" class="stretched-link link-body-emphasis" style="position: relative;">${Article.getNomArticle() }</a></h4>
+				      	<c:choose>
+				      		<c:when test="${Article.getPossesseurArticle().getIdUtilisateur() == sessionUtilisateur.idUtilisateur }">
+				        		<h4 class="card-title"><a href="ServletModifArticle?idArticleModif=${Article.getIdArticle() }" class="stretched-link link-body-emphasis" style="position: relative;">${Article.getNomArticle() }</a></h4>
+				        	</c:when>
+				        	<c:otherwise>
+				        		<h4 class="card-title"><a href="ServletDetailVente?idArticleVendu=${Article.getIdArticle() }" class="stretched-link link-body-emphasis" style="position: relative;">${Article.getNomArticle() }</a></h4>
+				        	</c:otherwise>
+				        </c:choose>
 				        <br>
 						<p>Prix : ${Article.getPrixVente() }</p>
 						<p>Date de fin d'enchère : ${Article.getDateFinEncheres() }</p>

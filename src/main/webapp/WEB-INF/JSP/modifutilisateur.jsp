@@ -17,9 +17,7 @@
 	<header>
 		<br>
 		<div class="row">
-			<div class="col-4">
-				<a href="ServletAccueil">ENI-Enchères</a>
-			</div>
+			<div class="col-12 text-align-center"><a href="ServletAccueil"><img src="Images/LOGOINSANE_FINAL_VERSION.png" width="20%" /></a></div>
 		</div>
 		<br> <br> <br>
 	</header>

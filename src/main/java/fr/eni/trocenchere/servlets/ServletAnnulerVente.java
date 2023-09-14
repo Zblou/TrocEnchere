@@ -1,5 +1,6 @@
 package fr.eni.trocenchere.servlets;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -28,6 +29,8 @@ public class ServletAnnulerVente extends HttpServlet {
 		
 		int idArticleDelete = Integer.valueOf(request.getParameter("idObjetDelete"));
 		System.out.println("ID de l'objet à delete : " + idArticleDelete);
+		RequestDispatcher rd = request.getRequestDispatcher("/ServletAccueil");
+		rd.forward(request, response);
 		try {
 			ArticleManager.getInstance().deleteArticle(idArticleDelete);
 		}catch(Exception e) {

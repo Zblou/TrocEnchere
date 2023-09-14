@@ -13,7 +13,7 @@
 <header>
 	<br>
 	<div class="row">
-		<div class="col-4"><a href="ServletAccueil">ENI-Enchères</a></div>
+	<div class="col-4 text-start"><a href="ServletAccueil"><img src="Images/LOGOINSANE_FINAL_VERSION.png" width="33%" /></a></div>
 		<div class="col-4"><h3>Modification Vente </h3>N°${requestScope.ObjetAModif.getIdArticle() }</div>
 	</div>
 	<br>
