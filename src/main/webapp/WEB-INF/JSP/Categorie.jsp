@@ -16,7 +16,36 @@
 <br>
 <title>Category</title>
 </head>
+<<<<<<< HEAD
 <body class="container text-center">
+=======
+<body>
+		
+	<form method="POST" action="ServletCategorie">
+		
+		<h1>Category</h1>
+		
+		<img alt="Art et Decoration" src="Images/art.jpg" width="210px" height="200px">
+		<label for="ArtEtFenetre"><h3>Art</h3></label>
+		
+		<c:forEach items="${listeCategorie }" var="categorie">
+		
+		</c:forEach>
+		
+		
+		<br>
+		
+	
+	
+	<div class="row">
+	<div class="col-4">
+		<a href="AjoutCategorie">Ajouter-Une-Categorie</a>
+	</div>
+</div>
+<br>
+		 
+	</form>
+>>>>>>> branch 'master' of https://github.com/Zblou/TrocEnchere.git
 
 	<h1>Category</h1>
 

@@ -1,4 +1,4 @@
-package fr.eni.trocenchere.servlets;
+package fr.eni.trocenchere.bll;
 
 import java.util.ArrayList;
 import java.util.List;

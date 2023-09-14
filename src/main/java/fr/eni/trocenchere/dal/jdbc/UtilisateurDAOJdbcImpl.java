@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import fr.eni.trocenchere.bll.BusinessException;
 import fr.eni.trocenchere.bo.Utilisateur;
 import fr.eni.trocenchere.dal.DAO.DAOUtilisateur;
 
@@ -12,16 +13,26 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 
 	private static final String SELECT_BY_MDP = "SELECT mot_de_passe FROM UTILISATEURS WHERE pseudo = ?;";
 	private static final String SELECT_BY_PSEUDOS = "SELECT * FROM UTILISATEURS WHERE pseudo = ?;";
+	private static final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE id_utilisateur=?;";
 	private static final String INSERT_UTILISATEUR ="INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) "
 			+ "										VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo =?, nom=?, prenom=?, email=?, telephone=?, rue=?,"
 			+ "										code_postal=?, ville=?, mot_de_passe=? WHERE id_utilisateur =?;";
 	
+	private static final String UPDATE_CREDIT_UTILISATEUR = "UPDATE UTILISATEURS SET credit=? WHERE id_utilisateur=?;";
+	
 	private static final String DELETE_UTILISATEUR ="DELETE FROM UTILISATEURS WHERE id_utilisateur = ?;";
 
 	
 	
-	public void insert(Utilisateur utilisateur) {
+	public void insert(Utilisateur utilisateur) throws BusinessException{
+		
+//		if((utilisateur.getPseudo().isEmpty() || utilisateur.getPseudo().isBlank()) || (utilisateur.getPrenom() == null) || (utilisateur.getEmail() == null)
+//			|| (utilisateur.getTelephone() == null) || (utilisateur.getRue()== null) || (utilisateur.getCodePostal()== null)
+//			|| (utilisateur.getVille()== null) || (utilisateur.getMotDePasse()== null)) {
+//			
+//			throw new BusinessException(CodesErreurDAL.ERREUR_INSERTION_UTILISATEUR);
+//		}
 		
 		//connexion
 		try (Connection cnx = ConnexionProvider.getConnection()){
@@ -157,6 +168,73 @@ public class UtilisateurDAOJdbcImpl implements DAOUtilisateur {
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public void debiterCreditUtilisateur(int idUtilisateur, int creditActuel, Integer montantNouvelleEnchere) {
+
+		try (Connection cnx = ConnexionProvider.getConnection()){
+			
+			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_CREDIT_UTILISATEUR);
+			
+			pstmt.setInt(1, creditActuel - montantNouvelleEnchere);
+			pstmt.setInt(2, idUtilisateur);
+			
+			pstmt.executeUpdate();
+			
+			System.out.println("DEBIT CREDIT UTILISATEUR (-" + montantNouvelleEnchere + ") effectué !");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void ajouterCreditUtilisateur(int idUtilisateur, int creditActuel, Integer montantNouvelleEnchere) {
+		
+		try (Connection cnx = ConnexionProvider.getConnection()){
+			
+			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_CREDIT_UTILISATEUR);
+			
+			pstmt.setInt(1, creditActuel + montantNouvelleEnchere);
+			pstmt.setInt(2, idUtilisateur);
+			
+			pstmt.executeUpdate();
+			
+			System.out.println("DEBIT CREDIT UTILISATEUR (-" + montantNouvelleEnchere + ") effectué !");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Utilisateur selectUtilisateurById(int idUtilisateurAncienneEnchere) {
+		Utilisateur utilisateur = null;
+		
+		try (Connection cnx = ConnexionProvider.getConnection()){
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_ID);
+			pstmt.setInt(1, idUtilisateurAncienneEnchere);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			
+			if(rs.next()) {
+				utilisateur = new Utilisateur(
+						rs.getInt("id_utilisateur"),
+						rs.getString("pseudo"),
+						rs.getString("nom"),
+						rs.getString("prenom"),
+						rs.getString("email"),
+						rs.getString("telephone"),
+						rs.getString("rue"),
+						rs.getString("code_postal"),
+						rs.getString("ville"),
+						rs.getInt("credit")
+						);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return utilisateur;
 	}
 
 

@@ -70,7 +70,7 @@ public class ServletModifArticle extends HttpServlet {
 			String VilleDepot = request.getParameter("VilleDepot");
 			
 			ArticleManager.getInstance().modifArticleById(idArticleModif, ArticleName, DescriptionArticle,
-					ArticleCategorie, MiseAPrix, DebutEnchere, FinEnchere, RueDepot, CodePostalDepot, VilleDepot);
+					ArticleCategorie, MiseAPrix, MiseAPrix, DebutEnchere, FinEnchere, RueDepot, CodePostalDepot, VilleDepot);
 		}else {
 			System.out.println("On est dans le doPost de modifArticle mais sans avoir récupérer d'id");
 		}
