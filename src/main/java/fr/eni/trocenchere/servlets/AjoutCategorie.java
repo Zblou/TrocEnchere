@@ -1,7 +1,6 @@
 package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import fr.eni.trocenchere.bll.CategorieManegerDavid;
 import fr.eni.trocenchere.bo.CategorieDavid;
