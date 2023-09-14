@@ -13,10 +13,10 @@
 
 <header>
 	<div class="row mb-5">
-	<div class="col-4 text-start"><a href="ServletAccueil">ENI-Enchères</a></div>
+	<div class="col-4 text-start"><a href="ServletAccueil"><img src="Images/LOGOINSANE_FINAL_VERSION.png" width="33%" /></a></div>
 		<c:choose>
 			<c:when test="${!empty sessionUtilisateur }">
-				<div class="col-6 offset-2">
+				<div class="col-6 offset-2 mt-5">
 					<ul class="nav">
 						<li class="nav-item">
 							<a class="nav-link disabled">Bonjour ${sessionScope.sessionUtilisateur.pseudo}</a>
@@ -34,7 +34,7 @@
 				</div>	
 			</c:when>
 			<c:otherwise>
-				<div class="col-4 offset-4">
+				<div class="col-4 offset-4 mt-5">
 						<ul class="nav text-end">
 							<li class="nav-item">
 								<a class="nav-link" href="ServletConnexion">Se connecter</a>

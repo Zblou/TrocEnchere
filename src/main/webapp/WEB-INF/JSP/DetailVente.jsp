@@ -62,7 +62,7 @@
 			  </div>
 			  <br>
 			  <c:choose>
-				  <c:when test="${sessionScope.sessionUtilisateur.getCredit() < requestScope.ArticleVendu.getPrixVente()}">
+				  <c:when test="${sessionScope.sessionUtilisateur.getCredit() <= requestScope.ArticleVendu.getPrixVente()}">
 				  	  <div class="col-12"><label for="creditInsuffisant" class="form-label" style="font-weight:bold; color:red;">VOTRE CREDIT ACTUEL (${sessionScope.sessionUtilisateur.getCredit() }) NE VOUS PERMET PAS D'ENCHERIR SUR CET ARTICLE</label></div>
 					  <br>
 					  <br>

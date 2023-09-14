@@ -1,5 +1,6 @@
 package fr.eni.trocenchere.servlets;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -28,8 +29,13 @@ public class ServletEnchere extends HttpServlet {
 		if(EnchereManager.getInstance().nouvelleEnchereUtilisateur(Integer.valueOf(request.getParameter("enchereUtilisateur")),
 				ArticleManager.getInstance().selectArticleById(Integer.valueOf(request.getParameter("idArticleVendu"))),
 				UtilisateurManager.getInstance().selectionnerUtilisateur(request.getParameter("pseudoUtilisateurAcheteur")))) {
+			request.setAttribute("ArticleVendu", ArticleManager.getInstance().selectArticleById(Integer.valueOf(request.getParameter("idArticleVendu"))));
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/DetailVente.jsp");
+			rd.forward(request, response);
 			System.out.println("Enchère bien achetée !");
 		}else {
+			RequestDispatcher rd = request.getRequestDispatcher("/ServletAccueil");
+			rd.forward(request, response);
 			System.out.println("Problème avec l'achat de l'enchère, nouvelleEnchereUtilisateur() n'a pas marché !");
 		}
 
