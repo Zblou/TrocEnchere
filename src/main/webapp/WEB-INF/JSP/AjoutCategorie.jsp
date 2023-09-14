@@ -15,7 +15,7 @@
 <br>
 <title>Ajout Categorie</title>
 </head>
-<body>
+<body class="container text-center">
 
 	<h1>Ajouter une Category</h1>
 	<br>
