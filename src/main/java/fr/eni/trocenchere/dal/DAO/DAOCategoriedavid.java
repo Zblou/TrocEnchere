@@ -2,13 +2,13 @@ package fr.eni.trocenchere.dal.DAO;
 
 import java.util.ArrayList;
 
-import fr.eni.trocenchere.bo.Categorie;
-import fr.eni.trocenchere.bo.Categoriedavid;
+import fr.eni.trocenchere.bo.CategorieDavid;
+
 
 public interface DAOCategoriedavid {
 
-	void insert(Categoriedavid nouvelleCategorie);
+	void insert(CategorieDavid nouvelleCategorie);
 
-	ArrayList<Categoriedavid> selectALLLibelle();
+	ArrayList<CategorieDavid> selectALLLibelle();
 	
 }

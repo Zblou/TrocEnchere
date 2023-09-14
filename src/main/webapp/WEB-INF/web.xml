@@ -7,4 +7,14 @@
   <session-config>
     <session-timeout>5</session-timeout>
   </session-config>
+  <servlet>
+    <description></description>
+    <display-name>TestServletDavid</display-name>
+    <servlet-name>TestServletDavid</servlet-name>
+    <servlet-class>fr.eni.trocenchere.servlets.TestServletDavid</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServletDavid</servlet-name>
+    <url-pattern>/TestServletDavid</url-pattern>
+  </servlet-mapping>
 </web-app>

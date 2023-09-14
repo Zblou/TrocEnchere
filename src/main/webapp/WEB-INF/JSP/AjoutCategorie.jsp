@@ -15,18 +15,14 @@
 <br>
 <title>Ajout Categorie</title>
 </head>
-<body>
+<body class="container text-center">
 
 	<h1>Ajouter une Category</h1>
 	<br>
 	<form method="POST" action="AjoutCategorie">
-	<label for="Nom">Veuillez saisir le nom de la catégorie : </label>
-	<input type="text" id="Nom" name="Nom" required/>
-	<br>
-	<label for="avatar">Veuillez choisir une image : 
-	<input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" required/></label>
-	<br>
-	<br>
+		<label for="Nom">Veuillez saisir le nom de la catégorie : </label>
+		<input type="text" id="Nom" name="Nom" required/>
+		<br>
 	<input type="submit" value="Créer">
 
 	</form>
