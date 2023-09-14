@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <br>
 <div class="row">
 	<div class="col-4">
@@ -16,60 +18,33 @@
 <br>
 <title>Category</title>
 </head>
-<<<<<<< HEAD
+
 <body class="container text-center">
-=======
-<body>
-		
+
+
 	<form method="POST" action="ServletCategorie">
-		
+
 		<h1>Category</h1>
-		
-		<img alt="Art et Decoration" src="Images/art.jpg" width="210px" height="200px">
-		<label for="ArtEtFenetre"><h3>Art</h3></label>
-		
-		<c:forEach items="${listeCategorie }" var="categorie">
-		
-		</c:forEach>
-		
-		
 		<br>
-		
-	
-	
-	<div class="row">
-	<div class="col-4">
-		<a href="AjoutCategorie">Ajouter-Une-Categorie</a>
-	</div>
-</div>
-<br>
-		 
-	</form>
->>>>>>> branch 'master' of https://github.com/Zblou/TrocEnchere.git
-
-	<h1>Category</h1>
-
-	<img alt="Art et Decoration" src="Images/art.jpg" width="210px"
-		height="200px">
-	<label for="ArtEtFenetre"><h3>Art</h3></label>
-
-	<div class="row row-cols-1 row-cols-4 g-4">
-		<c:forEach items="${listeCategorie}" var="categorie">
+		<br>
+		<br>
+		<img alt="Art et Decoration" src="Images/art.png" width="210px"
+			height="200px"> <label for="ArtEtFenetre"></label>
+			<h3>Art</h3>
+		<c:forEach items="${listeCategorie }" var="categorie">
 			<div>
 				<p style="color: black">${categorie.libelle}</p>
-				<img>
 			</div>
 		</c:forEach>
+		<br>
 
-
-
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-4">
-			<a href="AjoutCategorie">Ajouter-Une-Categorie</a>
+		<div class="row">
+			<div class="col-4">
+				<a href="AjoutCategorie">Ajouter-Une-Categorie</a>
+			</div>
 		</div>
-	</div>
-	<br>
+		<br>
+
+	</form>
 </body>
 </html>

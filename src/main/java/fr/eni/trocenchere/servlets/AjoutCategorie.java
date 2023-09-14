@@ -1,6 +1,7 @@
 package fr.eni.trocenchere.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import fr.eni.trocenchere.bll.CategorieManegerDavid;
 import fr.eni.trocenchere.bo.CategorieDavid;
@@ -35,9 +36,9 @@ public class AjoutCategorie extends HttpServlet {
 		//envoy des des donne a la bll
 		CategorieManegerDavid.getInstance().insert(categorie);
 		System.out.println(nouvelleCategorie);
-  
-		RequestDispatcher rdd = request.getRequestDispatcher("/WEB-INF/JSP/Categorie.jsp");
-		rdd.forward(request, response);
+
+		
+		 response.sendRedirect(request.getContextPath() + "/ServletCategorie");
 	}
 
 }
